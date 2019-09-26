@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>CRM Tools</Name>
+    <Assembly>C:\Users\REPLACEUSERNAME\Documents\CRMRevitTools\v2019\MenuCreator\CRMTools.dll</Assembly>
+    <AddInId>7b48623e-7d05-42de-8c83-84ce471bdbb4</AddInId>
+    <FullClassName>CRMTools.AddPanel</FullClassName>
+    <VendorId>Christopher Ryan Mackay</VendorId>
+    <VendorDescription>Christopher Ryan Mackay</VendorDescription>
+  </AddIn>
+</RevitAddIns>

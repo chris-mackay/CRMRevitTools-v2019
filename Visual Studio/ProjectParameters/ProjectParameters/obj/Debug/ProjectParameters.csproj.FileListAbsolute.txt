@@ -1,0 +1,8 @@
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\ProjectParameters\ProjectParameters\bin\Debug\ProjectParameters.dll
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\ProjectParameters\ProjectParameters\bin\Debug\ProjectParameters.pdb
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\ProjectParameters\ProjectParameters\obj\Debug\ProjectParameters.csprojResolveAssemblyReference.cache
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\ProjectParameters\ProjectParameters\obj\Debug\ProjectParameters.MainForm.resources
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\ProjectParameters\ProjectParameters\obj\Debug\ProjectParameters.csproj.GenerateResource.Cache
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\ProjectParameters\ProjectParameters\obj\Debug\ProjectParameters.csproj.CoreCompileInputs.cache
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\ProjectParameters\ProjectParameters\obj\Debug\ProjectParameters.dll
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\ProjectParameters\ProjectParameters\obj\Debug\ProjectParameters.pdb

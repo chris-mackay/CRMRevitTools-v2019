@@ -1,0 +1,12 @@
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\CRMTools\CRMTools\bin\x64\Debug\CRMTools.dll
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\CRMTools\CRMTools\bin\x64\Debug\CRMTools.pdb
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\CRMTools\CRMTools\obj\x64\Debug\CRMTools.csprojResolveAssemblyReference.cache
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\CRMTools\CRMTools\obj\x64\Debug\CRMTools.csproj.CoreCompileInputs.cache
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\CRMTools\CRMTools\obj\x64\Debug\CRMTools.dll
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\CRMTools\CRMTools\obj\x64\Debug\CRMTools.pdb
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\CRMTools\CRMTools\bin\x64\Debug\CRMTools.dll
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\CRMTools\CRMTools\bin\x64\Debug\CRMTools.pdb
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\CRMTools\CRMTools\obj\x64\Debug\CRMTools.csprojResolveAssemblyReference.cache
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\CRMTools\CRMTools\obj\x64\Debug\CRMTools.csproj.CoreCompileInputs.cache
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\CRMTools\CRMTools\obj\x64\Debug\CRMTools.dll
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\CRMTools\CRMTools\obj\x64\Debug\CRMTools.pdb

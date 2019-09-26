@@ -1,0 +1,68 @@
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.pdb
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.MainForm.resources
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.GenerateResource.Cache
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.pdb
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.pdb
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\RevitAPI.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\RevitAPIUI.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csprojResolveAssemblyReference.cache
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.MainForm.resources
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.GenerateResource.Cache
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreatorCS\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.pdb
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.pdb
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\RevitAPI.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\RevitAPIUI.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.MainForm.resources
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.GenerateResource.Cache
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.CoreCompileInputs.cache
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.pdb
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2015\_released\v1.0.0\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2015\_released\v1.0.0\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.pdb
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2015\_released\v1.0.0\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.MainForm.resources
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2015\_released\v1.0.0\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.GenerateResource.Cache
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2015\_released\v1.0.0\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.CoreCompileInputs.cache
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2015\_released\v1.0.0\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2015\_released\v1.0.0\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.pdb
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2017\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2017\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.pdb
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2017\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\RevitAPI.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2017\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\RevitAPIUI.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2017\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.MainForm.resources
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2017\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.GenerateResource.Cache
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2017\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.CoreCompileInputs.cache
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2017\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\CRMRevitTools-v2017\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.pdb
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.dll
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.pdb
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.MainForm.resources
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.GenerateResource.Cache
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.CoreCompileInputs.cache
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.dll
+C:\Revit Programming\CRMRevitTools-v2017\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.pdb
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.dll
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.pdb
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.MainForm.resources
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.GenerateResource.Cache
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.CoreCompileInputs.cache
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.dll
+C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.pdb
+C:\Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.dll
+C:\Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.pdb
+C:\Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.MainForm.resources
+C:\Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.GenerateResource.cache
+C:\Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.CoreCompileInputs.cache
+C:\Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.dll
+C:\Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.pdb
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\bin\x64\Release\SharedParameterCreator.pdb
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.MainForm.resources
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.GenerateResource.cache
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.csproj.CoreCompileInputs.cache
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Release\SharedParameterCreator.pdb

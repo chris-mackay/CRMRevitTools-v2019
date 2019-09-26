@@ -1,0 +1,15 @@
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\CreateRevitSheets\CreateRevitSheets\bin\Release\CreateRevitSheets.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\CreateRevitSheets\CreateRevitSheets\bin\Release\CreateRevitSheets.pdb
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\CreateRevitSheets\CreateRevitSheets\obj\Release\CreateRevitSheets.csprojResolveAssemblyReference.cache
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\CreateRevitSheets\CreateRevitSheets\obj\Release\CreateRevitSheets.MainForm.resources
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\CreateRevitSheets\CreateRevitSheets\obj\Release\CreateRevitSheets.csproj.GenerateResource.Cache
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\CreateRevitSheets\CreateRevitSheets\obj\Release\CreateRevitSheets.dll
+C:\Users\CMackay\Documents\Visual Studio 2017\Projects\DPSTools_2015_API\CreateRevitSheets\CreateRevitSheets\obj\Release\CreateRevitSheets.pdb
+C:\Programming\CRMRevitTools-v2018\Visual Studio\CreateRevitSheets\CreateRevitSheets\bin\Release\CreateRevitSheets.dll
+C:\Programming\CRMRevitTools-v2018\Visual Studio\CreateRevitSheets\CreateRevitSheets\bin\Release\CreateRevitSheets.pdb
+C:\Programming\CRMRevitTools-v2018\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\Release\CreateRevitSheets.frmAddSheet.resources
+C:\Programming\CRMRevitTools-v2018\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\Release\CreateRevitSheets.MainForm.resources
+C:\Programming\CRMRevitTools-v2018\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\Release\CreateRevitSheets.csproj.GenerateResource.cache
+C:\Programming\CRMRevitTools-v2018\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\Release\CreateRevitSheets.csproj.CoreCompileInputs.cache
+C:\Programming\CRMRevitTools-v2018\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\Release\CreateRevitSheets.dll
+C:\Programming\CRMRevitTools-v2018\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\Release\CreateRevitSheets.pdb
