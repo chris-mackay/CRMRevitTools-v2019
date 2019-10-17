@@ -13,3 +13,10 @@ C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SheetRenamer\SheetRenamer
 C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SheetRenamer\SheetRenamer\obj\x64\Debug\SheetRenamer.csproj.CoreCompileInputs.cache
 C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SheetRenamer\SheetRenamer\obj\x64\Debug\SheetRenamer.dll
 C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SheetRenamer\SheetRenamer\obj\x64\Debug\SheetRenamer.pdb
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SheetRenamer\SheetRenamer\bin\x64\Debug\SheetRenamer.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SheetRenamer\SheetRenamer\bin\x64\Debug\SheetRenamer.pdb
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SheetRenamer\SheetRenamer\obj\x64\Debug\SheetRenamer.MainForm.resources
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SheetRenamer\SheetRenamer\obj\x64\Debug\SheetRenamer.csproj.GenerateResource.cache
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SheetRenamer\SheetRenamer\obj\x64\Debug\SheetRenamer.csproj.CoreCompileInputs.cache
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SheetRenamer\SheetRenamer\obj\x64\Debug\SheetRenamer.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SheetRenamer\SheetRenamer\obj\x64\Debug\SheetRenamer.pdb

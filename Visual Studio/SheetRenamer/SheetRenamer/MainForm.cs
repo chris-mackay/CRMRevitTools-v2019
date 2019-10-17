@@ -129,6 +129,7 @@ namespace SheetRenamer
 
                     List<string> reOrderedFiles = new List<string>();
 
+
                     //LOOP THROUGH ALL THE SHEETS FROM THE SHEETSET, CREATE NEW SHEET NAMES, AND FILL NEW FILE LIST
                     foreach (ViewSheet oldSheet in viewSet)
                     {
@@ -138,6 +139,38 @@ namespace SheetRenamer
 
                         sheetNumber = oldSheet.SheetNumber;
                         sheetName = oldSheet.Name;
+
+                        // SHEET NUMBER NEEDS TO BE CHECKED FOR THE FOLLOWING SPECIAL CHARACTERS BELOW
+
+                        // THESE NEED TO BE REPLACED WITH '-'
+                        // / * " .
+
+                        // REVIT CHECKS FOR THE FOLLOWING CHARACTERS BELOW AND DON'T NEED TO BE HANDLED
+                        // \ : {} [] ; < > ? ` ~
+
+                        // REVIT & WINDOWS ALLOW THE CHARACTERS BELOW
+                        // ! @ # $ % ^ & * ( ) _ + = - ' ,
+
+
+                        if (sheetNumber.Contains(@"/"))
+                        {
+                            sheetNumber = sheetNumber.Replace(@"/", "-");
+                        }
+
+                        if (sheetNumber.Contains("*"))
+                        {
+                            sheetNumber = sheetNumber.Replace("*", "-");
+                        }
+
+                        if (sheetNumber.Contains("\""))
+                        {
+                            sheetNumber = sheetNumber.Replace("\"", "-");
+                        }
+
+                        if (sheetNumber.Contains("."))
+                        {
+                            sheetNumber = sheetNumber.Replace(".", "-");
+                        }
 
                         string rev = string.Empty;
 
