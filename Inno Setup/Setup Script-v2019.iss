@@ -1,12 +1,12 @@
 #define MyAppName "CRMRevitTools-v2019"
-#define MyAppVersion "1.0.1"
-#define MyVersionInfoVersion "1.0.1"
+#define MyAppVersion "1.0.2"
+#define MyVersionInfoVersion "1.0.2"
 #define MyAppPublisher "Christopher Ryan Mackay"
 
 [Setup]
 AppId={{4EAC56CA-BB49-4251-9BB9-A01CF961A441}
 AppName={#MyAppName}
-AppCopyright=Copyright © 2019-2019 Christopher Ryan Mackay
+AppCopyright=Copyright © 2019 Christopher Ryan Mackay
 AppVersion={#MyAppVersion}
 VersionInfoVersion={#MyVersionInfoVersion}
 AppPublisher={#MyAppPublisher}

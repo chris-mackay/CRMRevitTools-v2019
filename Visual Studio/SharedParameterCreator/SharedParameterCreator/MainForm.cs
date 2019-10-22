@@ -52,7 +52,7 @@ namespace SharedParameterCreator
             myRevitDoc = myRevitUIApp.ActiveUIDocument.Document;
             myCommandData = Class1.m_commandData;
 
-            revitVersion = "v2018";
+            revitVersion = "v2019";
 
         }
 
@@ -401,7 +401,7 @@ namespace SharedParameterCreator
         {
 
             string helpFile = string.Empty;
-            helpFile = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\v2018\CRMRevitTools_Help\shared_parameter_creator.html";
+            helpFile = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\v2019\CRMRevitTools_Help\shared_parameter_creator.html";
 
             if (File.Exists(helpFile))
             {
