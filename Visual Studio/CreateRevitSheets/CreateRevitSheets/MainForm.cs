@@ -1,4 +1,4 @@
-﻿//    Copyright(C) 2019 Christopher Ryan Mackay
+﻿//    Copyright(C) 2019  Christopher Ryan Mackay
 
 //    This program is free software: you can redistribute it and/or modify
 //    it under the terms of the GNU General Public License as published by
@@ -56,12 +56,13 @@ namespace CreateRevitSheets
 
         //VIEW DICTIONARY
         private Dictionary<string, ElementId> viewDictionary;
-        
+
         //STRINGS
         private string titleBlockName;
-        
+        private string REVIT_VERSION = "v2019";
+
         #endregion
-       
+
         public MainForm()
         {
             InitializeComponent();
@@ -84,7 +85,7 @@ namespace CreateRevitSheets
             viewCollector = new FilteredElementCollector(revitDoc);
             viewFilter = new ElementCategoryFilter(BuiltInCategory.OST_Views);
             viewList = viewCollector.WherePasses(viewFilter).ToElements(); //CONTAINS ALL THE VIEWS IN THE PROJECT
-            
+
             //VIEW SHEETS
             viewSheetCollector = new FilteredElementCollector(revitDoc);
             viewSheetCollector.OfClass(typeof(Autodesk.Revit.DB.ViewSheet));
@@ -98,9 +99,9 @@ namespace CreateRevitSheets
 
             //VIEW DICTIONARY
             viewDictionary = new Dictionary<string, ElementId>();
-         
+
         }
-        
+
         private void cbTitleblocks_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -117,7 +118,7 @@ namespace CreateRevitSheets
             }
 
         }
-                
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.GetAllAvailableViewNamesAndIds();
@@ -127,7 +128,7 @@ namespace CreateRevitSheets
             cbViewTypes.SelectedIndex = 0; //SELECT FLOOR PLANS BY DEFAULT
             btnCreate.Enabled = false;
         }
-        
+
         public Result LoadTitleblock()
         {
 
@@ -156,7 +157,7 @@ namespace CreateRevitSheets
                 Autodesk.Revit.DB.Family family = null;
                 if (revitDoc.LoadFamily(openFileDialog1.FileName, out family))
                 {
-                    
+
                     //LOADS ALL TITLEBLOCKS
                     //CREATE A FILTER TO GET ALL THE TITLEBLOCK TYPES
                     FilteredElementCollector titleblockCollector = new FilteredElementCollector(revitDoc);
@@ -281,7 +282,7 @@ namespace CreateRevitSheets
             }
 
             if (disregardedSheetsNumbersList.Count > 0)
-            {   
+            {
                 TaskDialog taskDialog = new TaskDialog("Create Sheets");
 
                 taskDialog.MainIcon = TaskDialogIcon.TaskDialogIconNone;
@@ -326,7 +327,7 @@ namespace CreateRevitSheets
 
                 }
             }
-            
+
             foreach (Autodesk.Revit.DB.View v in viewList)
             {
                 string vName = string.Empty;
@@ -387,7 +388,7 @@ namespace CreateRevitSheets
                 }
             }
         }
-        
+
         private void cbViews_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -429,9 +430,9 @@ namespace CreateRevitSheets
                     break;
                 default:
                     break;
-            }            
+            }
         }
-        
+
         #region BUTTON EVENTS
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -526,7 +527,7 @@ namespace CreateRevitSheets
         private void MainForm_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
         {
             string helpFile = string.Empty;
-            helpFile = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\v2019\CRMRevitTools_Help\create_revit_sheets.html";
+            helpFile = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\" + REVIT_VERSION + @"\CRMRevitTools_Help\create_revit_sheets.html";
 
             if (File.Exists(helpFile))
             {

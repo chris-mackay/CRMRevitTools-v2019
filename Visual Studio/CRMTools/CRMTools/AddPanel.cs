@@ -33,14 +33,13 @@ namespace CRMTools
             string tabName = "CRM Tools";
             application.CreateRibbonTab(tabName);
 
-            string revitVersion = string.Empty;
-            revitVersion = "v2019";
+            string REVIT_VERSION = "v2019";
 
             string commandsPath = "";
-            commandsPath = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\" + revitVersion + @"\Commands\";
+            commandsPath = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\" + REVIT_VERSION + @"\Commands\";
 
             string iconsPath = "";
-            iconsPath = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\" + revitVersion + @"\RevitIcons\";
+            iconsPath = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\" + REVIT_VERSION + @"\RevitIcons\";
 
             #region CreateRevitSheets
 
@@ -63,7 +62,7 @@ namespace CRMTools
             btnCreateRevitSheets.Image = smallImage_CreateRevitSheets;
 
             #endregion
-            
+
             #region SharedParameterCreator
 
             // Create a push button
@@ -119,7 +118,7 @@ namespace CRMTools
             btnProjectParameters.LongDescription = "1) Make sure a Shared Parameter file is loaded in Manage->Shared Parameters\n" +
                                                    "2) Click Load to fill the view with the Shared Parameters from the file\n" +
                                                    "3) Right click to set the Binding type (e.g. Instance or Type). This value must be set before selecting a Category.\n" +
-                                                   "4) Right click to set the element Category (e.g. Mechanical Equipment, Walls, etc.)\n" + 
+                                                   "4) Right click to set the element Category (e.g. Mechanical Equipment, Walls, etc.)\n" +
                                                    "5) Right click to set the Properties Group. This is the category it will be grouped under in the Properties window.\n" +
                                                    "6) Click Insert to insert the Shared Parameters into Project Parameters";
 
@@ -135,7 +134,7 @@ namespace CRMTools
             btnProjectParameters.Image = smallImage_ProjectParameters;
 
             #endregion
-            
+
             #region ProductionPanelItems
 
             // Create a ribbon panel

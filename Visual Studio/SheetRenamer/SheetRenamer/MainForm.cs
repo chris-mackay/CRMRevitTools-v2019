@@ -34,6 +34,7 @@ namespace SheetRenamer
         List<string> oldFilesInDirectory = new List<string>();
 
         public IList<Element> viewSheetSets = null;
+        public string REVIT_VERSION = "v2019";
 
         #endregion
 
@@ -47,9 +48,9 @@ namespace SheetRenamer
             InitializeComponent();
             myRevitUIApp = incomingUIApp;
             myRevitDoc = myRevitUIApp.ActiveUIDocument.Document;
-            
+
             FilteredElementCollector sheetSetsCol = new FilteredElementCollector(myRevitDoc);
-            
+
             viewSheetSets = sheetSetsCol.OfClass(typeof(ViewSheetSet)).ToElements(); //GET ALL THE SHEETSETS IN THE PROJECT
 
             projectNumber = myRevitDoc.ProjectInformation.LookupParameter("Project Number").AsString();
@@ -72,9 +73,9 @@ namespace SheetRenamer
                 string dir = string.Empty;
                 dir = fldrBrowser.SelectedPath;
                 txtDrawingDirectory.Text = dir.Trim();
-            }            
+            }
         }
-        
+
         private void btnOK_Click(object sender, EventArgs e)
         {
             TaskDialog taskDialog = new TaskDialog("Sheet Renamer");
@@ -94,13 +95,13 @@ namespace SheetRenamer
                 taskDialog.MainInstruction = "No directory provided.";
                 taskDialog.Show();
             }
-            else if(!System.IO.Directory.Exists(dir))
+            else if (!System.IO.Directory.Exists(dir))
             {
                 taskDialog.MainIcon = TaskDialogIcon.TaskDialogIconWarning;
                 taskDialog.MainInstruction = "The directory provided does not exist.";
                 taskDialog.Show();
             }
-            else if(cbSheetSets.SelectedIndex < 0)
+            else if (cbSheetSets.SelectedIndex < 0)
             {
                 taskDialog.MainIcon = TaskDialogIcon.TaskDialogIconWarning;
                 taskDialog.MainInstruction = "No sheet set provided.";
@@ -128,7 +129,6 @@ namespace SheetRenamer
                     }
 
                     List<string> reOrderedFiles = new List<string>();
-
 
                     //LOOP THROUGH ALL THE SHEETS FROM THE SHEETSET, CREATE NEW SHEET NAMES, AND FILL NEW FILE LIST
                     foreach (ViewSheet oldSheet in viewSet)
@@ -241,7 +241,7 @@ namespace SheetRenamer
         {
 
             string helpFile = string.Empty;
-            helpFile = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\v2019\CRMRevitTools_Help\sheet_renamer.html";
+            helpFile = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\" + REVIT_VERSION + @"\CRMRevitTools_Help\sheet_renamer.html";
 
             if (File.Exists(helpFile))
             {

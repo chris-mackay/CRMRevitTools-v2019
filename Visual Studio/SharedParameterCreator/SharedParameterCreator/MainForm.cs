@@ -36,7 +36,7 @@ namespace SharedParameterCreator
         public bool insertIntoProjectParameters = false;
 
         public string workingDirectory = string.Empty;
-        public string revitVersion = string.Empty;
+        public string REVIT_VERSION = string.Empty;
 
         #endregion
 
@@ -52,7 +52,7 @@ namespace SharedParameterCreator
             myRevitDoc = myRevitUIApp.ActiveUIDocument.Document;
             myCommandData = Class1.m_commandData;
 
-            revitVersion = "v2019";
+            REVIT_VERSION = "v2019";
 
         }
 
@@ -326,7 +326,7 @@ namespace SharedParameterCreator
 
             string templateFile = string.Empty;
 
-            templateFile = @"C:\Users\" + userName + @"\Documents\CRMRevitTools\" + revitVersion + @"\Parameter_Template-" + revitVersion + ".xlsx";
+            templateFile = @"C:\Users\" + userName + @"\Documents\CRMRevitTools\" + REVIT_VERSION + @"\Parameter_Template-" + REVIT_VERSION + ".xlsx";
 
             if (File.Exists(templateFile))
             {
@@ -336,7 +336,7 @@ namespace SharedParameterCreator
                     date = DateTime.Now;
 
                     string timeStamp = date.ToString("yyyyMMddHHmmss");
-                    workingDirectory = @"C:\Users\" + userName + @"\Desktop\" + timeStamp + "-" + revitVersion + "-Shared_Parameters";
+                    workingDirectory = @"C:\Users\" + userName + @"\Desktop\" + timeStamp + "-" + REVIT_VERSION + "-Shared_Parameters";
 
                     if (!Directory.Exists(workingDirectory))
                     {
@@ -344,7 +344,7 @@ namespace SharedParameterCreator
                     }
 
                     string workingFile = string.Empty;
-                    workingFile = workingDirectory + @"\" + timeStamp + "-" + revitVersion + "-Shared_Parameters.xlsx";
+                    workingFile = workingDirectory + @"\" + timeStamp + "-" + REVIT_VERSION + "-Shared_Parameters.xlsx";
 
                     File.Copy(templateFile, workingFile);
 
@@ -401,7 +401,7 @@ namespace SharedParameterCreator
         {
 
             string helpFile = string.Empty;
-            helpFile = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\v2019\CRMRevitTools_Help\shared_parameter_creator.html";
+            helpFile = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\" + REVIT_VERSION + @"\CRMRevitTools_Help\shared_parameter_creator.html";
 
             if (File.Exists(helpFile))
             {
