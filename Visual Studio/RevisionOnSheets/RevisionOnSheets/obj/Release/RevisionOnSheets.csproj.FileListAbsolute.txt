@@ -1,0 +1,6 @@
+C:\Programming\CRMRevitTools-v2019\Visual Studio\RevisionOnSheets\RevisionOnSheets\bin\Release\RevisionOnSheets.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\RevisionOnSheets\RevisionOnSheets\bin\Release\RevisionOnSheets.pdb
+C:\Programming\CRMRevitTools-v2019\Visual Studio\RevisionOnSheets\RevisionOnSheets\obj\Release\RevisionOnSheets.MainForm.resources
+C:\Programming\CRMRevitTools-v2019\Visual Studio\RevisionOnSheets\RevisionOnSheets\obj\Release\RevisionOnSheets.csproj.GenerateResource.cache
+C:\Programming\CRMRevitTools-v2019\Visual Studio\RevisionOnSheets\RevisionOnSheets\obj\Release\RevisionOnSheets.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\RevisionOnSheets\RevisionOnSheets\obj\Release\RevisionOnSheets.pdb
