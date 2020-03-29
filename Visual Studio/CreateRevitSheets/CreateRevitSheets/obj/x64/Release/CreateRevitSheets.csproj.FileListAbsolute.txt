@@ -74,10 +74,8 @@ C:\Programming\CRMRevitTools-v2018\Visual Studio\CreateRevitSheets\CreateRevitSh
 C:\Programming\CRMRevitTools-v2018\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\x64\Release\CreateRevitSheets.pdb
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateRevitSheets\CreateRevitSheets\bin\x64\Release\CreateRevitSheets.dll
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateRevitSheets\CreateRevitSheets\bin\x64\Release\CreateRevitSheets.pdb
-C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\x64\Release\CreateRevitSheets.csprojAssemblyReference.cache
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\x64\Release\CreateRevitSheets.frmAddSheet.resources
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\x64\Release\CreateRevitSheets.MainForm.resources
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\x64\Release\CreateRevitSheets.csproj.GenerateResource.cache
-C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\x64\Release\CreateRevitSheets.csproj.CoreCompileInputs.cache
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\x64\Release\CreateRevitSheets.dll
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateRevitSheets\CreateRevitSheets\obj\x64\Release\CreateRevitSheets.pdb
