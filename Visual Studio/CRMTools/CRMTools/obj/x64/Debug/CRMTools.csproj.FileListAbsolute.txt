@@ -12,6 +12,5 @@ C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\CRMTools\CRMTools\obj\x64
 C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\CRMTools\CRMTools\obj\x64\Debug\CRMTools.pdb
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CRMTools\CRMTools\bin\x64\Debug\CRMTools.dll
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CRMTools\CRMTools\bin\x64\Debug\CRMTools.pdb
-C:\Programming\CRMRevitTools-v2019\Visual Studio\CRMTools\CRMTools\obj\x64\Debug\CRMTools.csprojAssemblyReference.cache
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CRMTools\CRMTools\obj\x64\Debug\CRMTools.dll
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CRMTools\CRMTools\obj\x64\Debug\CRMTools.pdb

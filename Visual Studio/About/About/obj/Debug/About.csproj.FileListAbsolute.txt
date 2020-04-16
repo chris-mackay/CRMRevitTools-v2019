@@ -1,0 +1,6 @@
+C:\Programming\CRMRevitTools-v2019\Visual Studio\About\About\bin\Debug\About.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\About\About\bin\Debug\About.pdb
+C:\Programming\CRMRevitTools-v2019\Visual Studio\About\About\obj\Debug\About.MainForm.resources
+C:\Programming\CRMRevitTools-v2019\Visual Studio\About\About\obj\Debug\About.csproj.GenerateResource.cache
+C:\Programming\CRMRevitTools-v2019\Visual Studio\About\About\obj\Debug\About.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\About\About\obj\Debug\About.pdb
