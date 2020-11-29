@@ -1,7 +1,7 @@
 #define RevitVersion "2019"
 #define MyAppName "CRMRevitTools-v2019"
-#define MyAppVersion "1.0.7"
-#define MyVersionInfoVersion "1.0.7"
+#define MyAppVersion "1.0.8"
+#define MyVersionInfoVersion "1.0.8"
 #define MyAppPublisher "Christopher Ryan Mackay"
 
 [Setup]
@@ -53,4 +53,3 @@ Type: dirifempty; Name: {userdocs}\CRMRevitTools;
 
 [Run]
 Filename: {userdocs}\CRMRevitTools\v{#RevitVersion}\CRMRevitToolsInit-v{#RevitVersion}.exe;
-

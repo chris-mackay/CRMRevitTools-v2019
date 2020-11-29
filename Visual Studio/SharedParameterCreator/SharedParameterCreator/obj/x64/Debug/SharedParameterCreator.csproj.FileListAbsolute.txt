@@ -22,8 +22,8 @@ C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\Sh
 C:\Revit Programming\CRMRevitTools-v2018\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Debug\SharedParameterCreator.pdb
 C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\bin\x64\Debug\SharedParameterCreator.dll
 C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\bin\x64\Debug\SharedParameterCreator.pdb
+C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Debug\SharedParameterCreator.csprojAssemblyReference.cache
 C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Debug\SharedParameterCreator.MainForm.resources
 C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Debug\SharedParameterCreator.csproj.GenerateResource.cache
-C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Debug\SharedParameterCreator.csproj.CoreCompileInputs.cache
 C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Debug\SharedParameterCreator.dll
 C:\Programming\CRMRevitTools-v2019\Visual Studio\SharedParameterCreator\SharedParameterCreator\obj\x64\Debug\SharedParameterCreator.pdb

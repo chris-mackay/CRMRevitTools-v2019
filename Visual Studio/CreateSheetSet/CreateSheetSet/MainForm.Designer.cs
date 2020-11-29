@@ -52,14 +52,16 @@ namespace CreateSheetSet
             this.rbNumber = new System.Windows.Forms.RadioButton();
             this.rbDate = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbRevisions
             // 
             this.cbRevisions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRevisions.FormattingEnabled = true;
-            this.cbRevisions.Location = new System.Drawing.Point(12, 212);
+            this.cbRevisions.Location = new System.Drawing.Point(13, 252);
             this.cbRevisions.Name = "cbRevisions";
             this.cbRevisions.Size = new System.Drawing.Size(415, 21);
             this.cbRevisions.TabIndex = 3;
@@ -69,7 +71,7 @@ namespace CreateSheetSet
             // lblRevision
             // 
             this.lblRevision.AutoSize = true;
-            this.lblRevision.Location = new System.Drawing.Point(12, 190);
+            this.lblRevision.Location = new System.Drawing.Point(13, 230);
             this.lblRevision.Name = "lblRevision";
             this.lblRevision.Size = new System.Drawing.Size(90, 13);
             this.lblRevision.TabIndex = 2;
@@ -77,8 +79,9 @@ namespace CreateSheetSet
             // 
             // btnCreate
             // 
+            this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCreate.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnCreate.Location = new System.Drawing.Point(352, 12);
+            this.btnCreate.Location = new System.Drawing.Point(271, 327);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 4;
@@ -89,8 +92,9 @@ namespace CreateSheetSet
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(352, 41);
+            this.btnCancel.Location = new System.Drawing.Point(352, 327);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -101,9 +105,11 @@ namespace CreateSheetSet
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(188)))));
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(267, 39);
+            this.label1.Size = new System.Drawing.Size(396, 63);
             this.label1.TabIndex = 0;
             this.label1.Text = "Select a revision from the dropdown list below to create\r\na sheet set containing " +
     "all the sheets with the selected \r\nrevision property";
@@ -146,24 +152,34 @@ namespace CreateSheetSet
             this.groupBox1.Controls.Add(this.rbNumber);
             this.groupBox1.Controls.Add(this.rbDate);
             this.groupBox1.Controls.Add(this.rbSequence);
-            this.groupBox1.Location = new System.Drawing.Point(15, 73);
+            this.groupBox1.Location = new System.Drawing.Point(16, 102);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(161, 100);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Revision Properties";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.cbRevisions);
+            this.panel1.Controls.Add(this.lblRevision);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(439, 316);
+            this.panel1.TabIndex = 6;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 255);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(439, 362);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnCreate);
-            this.Controls.Add(this.lblRevision);
-            this.Controls.Add(this.cbRevisions);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -175,8 +191,9 @@ namespace CreateSheetSet
             this.Text = "Create Sheet Set";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -191,5 +208,6 @@ namespace CreateSheetSet
         private System.Windows.Forms.RadioButton rbNumber;
         private System.Windows.Forms.RadioButton rbDate;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
