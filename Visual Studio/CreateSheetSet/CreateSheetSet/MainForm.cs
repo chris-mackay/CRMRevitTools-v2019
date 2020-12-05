@@ -15,6 +15,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 
@@ -192,6 +193,18 @@ namespace CreateSheetSet
                 btnCreate.Enabled = true;
 
             LoadItems();
+        }
+
+        private void pictureBox1_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            using (Font myFont = new Font("Segoe UI", 12))
+            {
+                var brush = new SolidBrush(System.Drawing.Color.FromArgb(0, 51, 188));
+
+                e.Graphics.DrawString("Select a revision from the dropdown list below to create\n" +
+                                      "a sheet set containing all the sheets with the selected\n" +
+                                      "revision property", myFont, brush, new System.Drawing.Point(0, 0));
+            }
         }
     }
 }

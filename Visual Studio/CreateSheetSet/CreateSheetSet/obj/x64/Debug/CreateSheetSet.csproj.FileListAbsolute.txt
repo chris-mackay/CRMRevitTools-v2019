@@ -1,0 +1,7 @@
+C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateSheetSet\CreateSheetSet\bin\x64\Debug\CreateSheetSet.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateSheetSet\CreateSheetSet\bin\x64\Debug\CreateSheetSet.pdb
+C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateSheetSet\CreateSheetSet\obj\x64\Debug\CreateSheetSet.MainForm.resources
+C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateSheetSet\CreateSheetSet\obj\x64\Debug\CreateSheetSet.Properties.Resources.resources
+C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateSheetSet\CreateSheetSet\obj\x64\Debug\CreateSheetSet.csproj.GenerateResource.cache
+C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateSheetSet\CreateSheetSet\obj\x64\Debug\CreateSheetSet.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateSheetSet\CreateSheetSet\obj\x64\Debug\CreateSheetSet.pdb

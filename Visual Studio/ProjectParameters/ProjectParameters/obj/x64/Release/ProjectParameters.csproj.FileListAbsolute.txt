@@ -18,7 +18,6 @@ C:\Programming\CRMRevitTools-v2018\Visual Studio\ProjectParameters\ProjectParame
 C:\Programming\CRMRevitTools-v2018\Visual Studio\ProjectParameters\ProjectParameters\obj\x64\Release\ProjectParameters.csproj.CoreCompileInputs.cache
 C:\Programming\CRMRevitTools-v2018\Visual Studio\ProjectParameters\ProjectParameters\obj\x64\Release\ProjectParameters.dll
 C:\Programming\CRMRevitTools-v2019\Visual Studio\ProjectParameters\ProjectParameters\bin\x64\Release\ProjectParameters.dll
-C:\Programming\CRMRevitTools-v2019\Visual Studio\ProjectParameters\ProjectParameters\obj\x64\Release\ProjectParameters.csprojAssemblyReference.cache
 C:\Programming\CRMRevitTools-v2019\Visual Studio\ProjectParameters\ProjectParameters\obj\x64\Release\ProjectParameters.frmSelectionBox.resources
 C:\Programming\CRMRevitTools-v2019\Visual Studio\ProjectParameters\ProjectParameters\obj\x64\Release\ProjectParameters.MainForm.resources
 C:\Programming\CRMRevitTools-v2019\Visual Studio\ProjectParameters\ProjectParameters\obj\x64\Release\ProjectParameters.csproj.GenerateResource.cache

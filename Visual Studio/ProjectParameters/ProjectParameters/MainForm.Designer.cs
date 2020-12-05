@@ -43,8 +43,8 @@ namespace ProjectParameters
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnInsert = new System.Windows.Forms.Button();
             this.dgvSharedParameters = new System.Windows.Forms.DataGridView();
@@ -67,7 +67,8 @@ namespace ProjectParameters
             this.btnInsert.Location = new System.Drawing.Point(691, 718);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
-            this.btnInsert.TabIndex = 0;
+            this.btnInsert.TabIndex = 5;
+            this.btnInsert.TabStop = false;
             this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
@@ -79,20 +80,22 @@ namespace ProjectParameters
             this.dgvSharedParameters.AllowUserToOrderColumns = true;
             this.dgvSharedParameters.AllowUserToResizeColumns = false;
             this.dgvSharedParameters.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dgvSharedParameters.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSharedParameters.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.dgvSharedParameters.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvSharedParameters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSharedParameters.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSharedParameters.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvSharedParameters.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSharedParameters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSharedParameters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSharedParameters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSharedParameters.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmParamName,
@@ -109,7 +112,7 @@ namespace ProjectParameters
             this.dgvSharedParameters.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             this.dgvSharedParameters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSharedParameters.Size = new System.Drawing.Size(835, 506);
-            this.dgvSharedParameters.TabIndex = 17;
+            this.dgvSharedParameters.TabIndex = 4;
             this.dgvSharedParameters.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvSharedParameters_MouseUp);
             // 
             // clmParamName
@@ -144,19 +147,19 @@ namespace ProjectParameters
             // 
             // lblSharedParameterFile
             // 
-            this.lblSharedParameterFile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSharedParameterFile.AutoSize = true;
             this.lblSharedParameterFile.BackColor = System.Drawing.Color.Transparent;
             this.lblSharedParameterFile.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblSharedParameterFile.Location = new System.Drawing.Point(12, 162);
             this.lblSharedParameterFile.Name = "lblSharedParameterFile";
             this.lblSharedParameterFile.Size = new System.Drawing.Size(111, 13);
-            this.lblSharedParameterFile.TabIndex = 18;
+            this.lblSharedParameterFile.TabIndex = 1;
             this.lblSharedParameterFile.Text = "Shared Parameter File";
             // 
             // txtSharedParameterFile
             // 
-            this.txtSharedParameterFile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txtSharedParameterFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSharedParameterFile.BackColor = System.Drawing.SystemColors.Control;
             this.txtSharedParameterFile.Enabled = false;
             this.txtSharedParameterFile.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -164,38 +167,41 @@ namespace ProjectParameters
             this.txtSharedParameterFile.Name = "txtSharedParameterFile";
             this.txtSharedParameterFile.ReadOnly = true;
             this.txtSharedParameterFile.Size = new System.Drawing.Size(754, 20);
-            this.txtSharedParameterFile.TabIndex = 19;
+            this.txtSharedParameterFile.TabIndex = 2;
+            this.txtSharedParameterFile.TabStop = false;
             // 
             // btnLoad
             // 
-            this.btnLoad.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoad.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnLoad.Location = new System.Drawing.Point(772, 179);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
-            this.btnLoad.TabIndex = 20;
+            this.btnLoad.TabIndex = 3;
+            this.btnLoad.TabStop = false;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // lblInstructions
             // 
-            this.lblInstructions.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblInstructions.AutoSize = true;
             this.lblInstructions.BackColor = System.Drawing.Color.Transparent;
             this.lblInstructions.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblInstructions.Location = new System.Drawing.Point(9, 9);
             this.lblInstructions.Name = "lblInstructions";
             this.lblInstructions.Size = new System.Drawing.Size(534, 130);
-            this.lblInstructions.TabIndex = 18;
+            this.lblInstructions.TabIndex = 0;
             this.lblInstructions.Text = resources.GetString("lblInstructions.Text");
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Location = new System.Drawing.Point(772, 718);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 21;
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.TabStop = false;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -212,9 +218,9 @@ namespace ProjectParameters
             this.Controls.Add(this.lblSharedParameterFile);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnInsert);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(595, 400);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
