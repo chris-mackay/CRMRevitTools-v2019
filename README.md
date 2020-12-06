@@ -48,4 +48,4 @@
 ## Insert into Project Parameters
 ![InsertIntoProjectParameters](Readme_Images/insert_parameters.gif?raw=true "InsertIntoProjectParameters")
 ## Revision On Sheets
-![RevisionOnSheets](Readme_Images/revision_on_sheets.png?raw=true "RevisionOnSheets")
+![RevisionOnSheets](Readme_Images/revision_on_sheets.gif?raw=true "RevisionOnSheets")
