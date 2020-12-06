@@ -56,10 +56,13 @@ namespace RevisionOnSheets
             cbRevisions.SelectedIndex = 0;
             int seq = RevisionSequenceNumber(cbRevisions.SelectedItem.ToString());
 
-            LoadSheets(dgvSheets);
-            SetCheckboxes(dgvSheets, seq);
-            dgvSheets[1, 0].Selected = true;
-            dgvSheets.ClearSelection();
+            if (viewSheets_ENTIRE_PROJECT.Count > 0)
+            {
+                LoadSheets(dgvSheets);
+                SetCheckboxes(dgvSheets, seq);
+                dgvSheets[1, 0].Selected = true;
+                dgvSheets.ClearSelection();
+            }
         }
 
         private int RevisionSequenceNumber(string selectedSequenceName)
