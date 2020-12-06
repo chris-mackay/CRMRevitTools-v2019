@@ -38,7 +38,7 @@
 
 # Included Commands
 ## Create Sheets
-![CreateSheets](Readme_Images/create_sheets.png?raw=true "CreateSheets")
+![CreateSheets](Readme_Images/create_sheets.gif?raw=true "CreateSheets")
 ## Shared Parameter Creator
 ![SharedParameterCreator](Readme_Images/shared_parameter_creator.png?raw=true "SharedParameterCreator")
 ## Create Sheet Set
