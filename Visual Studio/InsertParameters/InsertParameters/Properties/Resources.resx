@@ -117,16 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblInstructions.Text" xml:space="preserve">
-    <value>Instructions:
-
-1) Make sure a Shared Parameter file is loaded in Manage-&gt;Shared Parameters.
-2) Click Load to fill the view with the Shared Parameters from the file.
-3) Right click to set the Binding type (e.g. Instance or Type). This value must be set before selecting a Category. If not within a Family Document.
-4) Right click to set the element Category (e.g. Mechanical Equipment, Walls, etc.) . If not within a Family Document.
-5) Right click to set the Properties Group. This is the category it will be grouped under in the Properties window.
-6) Click Insert to insert the Shared Parameters into Project Parameters or Family Parameters.
-
-NOTE: Parameters that are already inserted into the project or family will not be loaded from the file.</value>
-  </data>
 </root>

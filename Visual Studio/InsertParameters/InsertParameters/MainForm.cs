@@ -174,8 +174,8 @@ namespace InsertParameters
             MenuItem cxmnuEditPropertiesGroup = new MenuItem("Edit Properties Group");
             MenuItem cxmnuExclude = new MenuItem("Exclude Parameter");
             
-            cxmnuEditCategory.Click += new EventHandler(cxmnuEditCategory_Click);
             cxmnuEditBinding.Click += new EventHandler(cxmnuEditBinding_Click);
+            cxmnuEditCategory.Click += new EventHandler(cxmnuEditCategory_Click);
             cxmnuEditPropertiesGroup.Click += new EventHandler(cxmnuEditPropertiesGroup_Click);
             cxmnuExclude.Click += new EventHandler(cxmnuExclude_Click);
 
@@ -855,7 +855,7 @@ namespace InsertParameters
             {
                 ContextMenu contextMenu = new ContextMenu();
                 contextMenu = TableContextMenu();
-                if (myRevitDoc.IsFamilyDocument) contextMenu.MenuItems[1].Enabled = false;
+                if (myRevitDoc.IsFamilyDocument) contextMenu.MenuItems.RemoveAt(1);
 
                 contextMenu.Show(dgvSharedParameters, new System.Drawing.Point(e.X, e.Y));
             }

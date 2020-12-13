@@ -64,7 +64,7 @@ namespace InsertParameters
             // btnInsert
             // 
             this.btnInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInsert.Location = new System.Drawing.Point(691, 718);
+            this.btnInsert.Location = new System.Drawing.Point(666, 718);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
             this.btnInsert.TabIndex = 5;
@@ -111,7 +111,7 @@ namespace InsertParameters
             this.dgvSharedParameters.RowHeadersVisible = false;
             this.dgvSharedParameters.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             this.dgvSharedParameters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSharedParameters.Size = new System.Drawing.Size(835, 506);
+            this.dgvSharedParameters.Size = new System.Drawing.Size(810, 506);
             this.dgvSharedParameters.TabIndex = 4;
             this.dgvSharedParameters.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvSharedParameters_MouseUp);
             // 
@@ -166,7 +166,7 @@ namespace InsertParameters
             this.txtSharedParameterFile.Location = new System.Drawing.Point(12, 180);
             this.txtSharedParameterFile.Name = "txtSharedParameterFile";
             this.txtSharedParameterFile.ReadOnly = true;
-            this.txtSharedParameterFile.Size = new System.Drawing.Size(754, 20);
+            this.txtSharedParameterFile.Size = new System.Drawing.Size(729, 20);
             this.txtSharedParameterFile.TabIndex = 2;
             this.txtSharedParameterFile.TabStop = false;
             // 
@@ -174,7 +174,7 @@ namespace InsertParameters
             // 
             this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoad.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLoad.Location = new System.Drawing.Point(772, 179);
+            this.btnLoad.Location = new System.Drawing.Point(747, 179);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 3;
@@ -190,14 +190,14 @@ namespace InsertParameters
             this.lblInstructions.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblInstructions.Location = new System.Drawing.Point(9, 9);
             this.lblInstructions.Name = "lblInstructions";
-            this.lblInstructions.Size = new System.Drawing.Size(579, 130);
+            this.lblInstructions.Size = new System.Drawing.Size(687, 130);
             this.lblInstructions.TabIndex = 0;
             this.lblInstructions.Text = resources.GetString("lblInstructions.Text");
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(772, 718);
+            this.btnCancel.Location = new System.Drawing.Point(747, 718);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 6;
@@ -210,7 +210,7 @@ namespace InsertParameters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 753);
+            this.ClientSize = new System.Drawing.Size(834, 753);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.dgvSharedParameters);
             this.Controls.Add(this.txtSharedParameterFile);
@@ -220,7 +220,7 @@ namespace InsertParameters
             this.Controls.Add(this.btnInsert);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(595, 400);
+            this.MinimumSize = new System.Drawing.Size(850, 400);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
