@@ -382,5 +382,48 @@ namespace RevisionOnSheets
             ColorRows();
             DrawingControl.ResumeDrawing(dgvSheets);
         }
+
+        private void btnAppy_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Transaction trans = new Transaction(myRevitDoc, "Revision On Sheets");
+                trans.Start();
+
+                string selectedSequenceName = cbRevisions.SelectedItem.ToString();
+
+                foreach (DataGridViewRow row in dgvSheets.Rows)
+                    foreach (ViewSheet viewSheet in viewSheets_ENTIRE_PROJECT)
+                    {
+                        string sheetNumber = row.Cells["SheetNumber"].Value.ToString();
+                        bool set = bool.Parse(row.Cells["Set"].Value.ToString());
+
+                        if (viewSheet.SheetNumber == sheetNumber && set == true)
+                        {
+                            int seq = RevisionSequenceNumber(selectedSequenceName);
+
+                            foreach (Revision revision in revisions_ENTIRE_PROJECT)
+                                if (revision.SequenceNumber == seq) AddRevisionOnSheet(viewSheet, revision);
+                        }
+                        else if (viewSheet.SheetNumber == sheetNumber && set == false)
+                        {
+                            int seq = RevisionSequenceNumber(selectedSequenceName);
+
+                            foreach (Revision revision in revisions_ENTIRE_PROJECT)
+                                if (revision.SequenceNumber == seq) RemoveRevisionOnSheet(viewSheet, revision);
+                        }
+                    }
+
+                trans.Commit();
+            }
+            catch (Exception ex)
+            {
+                TaskDialog td = new TaskDialog("Error");
+                td.MainInstruction = "Failed to set revision";
+                td.MainContent = ex.Message;
+                td.Show();
+                return;
+            }
+        }
     }
 }
