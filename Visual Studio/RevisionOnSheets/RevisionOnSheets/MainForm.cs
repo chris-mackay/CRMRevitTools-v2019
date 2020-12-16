@@ -151,6 +151,49 @@ namespace RevisionOnSheets
             viewSheet.SetAdditionalRevisionIds(revisionIds);
         }
 
+        private void SetRevisionOnSheets()
+        {
+            try
+            {
+                Transaction trans = new Transaction(myRevitDoc, "Revision On Sheets");
+                trans.Start();
+
+                string selectedSequenceName = cbRevisions.SelectedItem.ToString();
+
+                foreach (DataGridViewRow row in dgvSheets.Rows)
+                    foreach (ViewSheet viewSheet in viewSheets_ENTIRE_PROJECT)
+                    {
+                        string sheetNumber = row.Cells["SheetNumber"].Value.ToString();
+                        bool set = bool.Parse(row.Cells["Set"].Value.ToString());
+
+                        if (viewSheet.SheetNumber == sheetNumber && set == true)
+                        {
+                            int seq = RevisionSequenceNumber(selectedSequenceName);
+
+                            foreach (Revision revision in revisions_ENTIRE_PROJECT)
+                                if (revision.SequenceNumber == seq) AddRevisionOnSheet(viewSheet, revision);
+                        }
+                        else if (viewSheet.SheetNumber == sheetNumber && set == false)
+                        {
+                            int seq = RevisionSequenceNumber(selectedSequenceName);
+
+                            foreach (Revision revision in revisions_ENTIRE_PROJECT)
+                                if (revision.SequenceNumber == seq) RemoveRevisionOnSheet(viewSheet, revision);
+                        }
+                    }
+
+                trans.Commit();
+            }
+            catch (Exception ex)
+            {
+                TaskDialog td = new TaskDialog("Error");
+                td.MainInstruction = "Failed to set revision";
+                td.MainContent = ex.Message;
+                td.Show();
+                return;
+            }
+        }
+
         private void SetCheckboxes(DataGridView dataGridView, int sequence)
         {
             foreach (DataGridViewRow row in dataGridView.Rows)
@@ -212,45 +255,7 @@ namespace RevisionOnSheets
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Transaction trans = new Transaction(myRevitDoc, "Revision On Sheets");
-                trans.Start();
-
-                string selectedSequenceName = cbRevisions.SelectedItem.ToString();
-
-                foreach (DataGridViewRow row in dgvSheets.Rows)
-                    foreach (ViewSheet viewSheet in viewSheets_ENTIRE_PROJECT)
-                    {
-                        string sheetNumber = row.Cells["SheetNumber"].Value.ToString();
-                        bool set = bool.Parse(row.Cells["Set"].Value.ToString());
-
-                        if (viewSheet.SheetNumber == sheetNumber && set == true)
-                        {
-                            int seq = RevisionSequenceNumber(selectedSequenceName);
-
-                            foreach (Revision revision in revisions_ENTIRE_PROJECT)
-                                if (revision.SequenceNumber == seq) AddRevisionOnSheet(viewSheet, revision);
-                        }
-                        else if (viewSheet.SheetNumber == sheetNumber && set == false)
-                        {
-                            int seq = RevisionSequenceNumber(selectedSequenceName);
-
-                            foreach (Revision revision in revisions_ENTIRE_PROJECT)
-                                if (revision.SequenceNumber == seq) RemoveRevisionOnSheet(viewSheet, revision);
-                        }
-                    }
-
-                trans.Commit();
-            }
-            catch (Exception ex)
-            {
-                TaskDialog td = new TaskDialog("Error");
-                td.MainInstruction = "Failed to set revision";
-                td.MainContent = ex.Message;
-                td.Show();
-                return;
-            }
+            SetRevisionOnSheets();
         }
 
         public static class DrawingControl
@@ -339,6 +344,9 @@ namespace RevisionOnSheets
 
         private void ColorRows()
         {
+            DrawingControl.SetDoubleBuffered(dgvSheets);
+            DrawingControl.SuspendDrawing(dgvSheets);
+
             foreach (DataGridViewRow row in dgvSheets.Rows)
             {
                 bool set = bool.Parse(row.Cells["Set"].Value.ToString());
@@ -348,6 +356,8 @@ namespace RevisionOnSheets
                 else
                     row.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             }
+
+            DrawingControl.ResumeDrawing(dgvSheets);
         }
 
         private void dgvSheets_KeyUp(object sender, KeyEventArgs e)
@@ -358,9 +368,6 @@ namespace RevisionOnSheets
 
         private void dgvSheets_MouseClick(object sender, MouseEventArgs e)
         {
-            DrawingControl.SetDoubleBuffered(dgvSheets);
-            DrawingControl.SuspendDrawing(dgvSheets);
-
             if (e.Button == MouseButtons.Left && shiftKeyIsDown 
                 && dgvSheets.CurrentCell is DataGridViewCheckBoxCell)
             {
@@ -377,53 +384,16 @@ namespace RevisionOnSheets
                                 else
                                     row.DefaultCellStyle.BackColor = System.Drawing.Color.White;
                             }
+                
             }
 
             ColorRows();
-            DrawingControl.ResumeDrawing(dgvSheets);
         }
 
         private void btnAppy_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Transaction trans = new Transaction(myRevitDoc, "Revision On Sheets");
-                trans.Start();
-
-                string selectedSequenceName = cbRevisions.SelectedItem.ToString();
-
-                foreach (DataGridViewRow row in dgvSheets.Rows)
-                    foreach (ViewSheet viewSheet in viewSheets_ENTIRE_PROJECT)
-                    {
-                        string sheetNumber = row.Cells["SheetNumber"].Value.ToString();
-                        bool set = bool.Parse(row.Cells["Set"].Value.ToString());
-
-                        if (viewSheet.SheetNumber == sheetNumber && set == true)
-                        {
-                            int seq = RevisionSequenceNumber(selectedSequenceName);
-
-                            foreach (Revision revision in revisions_ENTIRE_PROJECT)
-                                if (revision.SequenceNumber == seq) AddRevisionOnSheet(viewSheet, revision);
-                        }
-                        else if (viewSheet.SheetNumber == sheetNumber && set == false)
-                        {
-                            int seq = RevisionSequenceNumber(selectedSequenceName);
-
-                            foreach (Revision revision in revisions_ENTIRE_PROJECT)
-                                if (revision.SequenceNumber == seq) RemoveRevisionOnSheet(viewSheet, revision);
-                        }
-                    }
-
-                trans.Commit();
-            }
-            catch (Exception ex)
-            {
-                TaskDialog td = new TaskDialog("Error");
-                td.MainInstruction = "Failed to set revision";
-                td.MainContent = ex.Message;
-                td.Show();
-                return;
-            }
+            SetRevisionOnSheets();
         }
+
     }
 }
