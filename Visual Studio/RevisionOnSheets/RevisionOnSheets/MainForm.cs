@@ -65,72 +65,37 @@ namespace RevisionOnSheets
             }
         }
 
-        private int RevisionSequenceNumber(string selectedSequenceName)
+        #region Voids
+
+        private void ColorRows()
         {
-            int seqNum = 0;
+            DrawingControl.SetDoubleBuffered(dgvSheets);
+            DrawingControl.SuspendDrawing(dgvSheets);
 
-            int from = selectedSequenceName.IndexOf("Seq. ") + "Seq. ".Length;
-            int to = selectedSequenceName.IndexOf(" - ");
-
-            string num = selectedSequenceName.Substring(from, to - from);
-            num = num.Trim();
-
-            seqNum = int.Parse(num);
-
-            return seqNum;
-        }
-
-        private void dgvSheets_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                ContextMenu contextMenu = new ContextMenu();
-                contextMenu = SheetsContextMenu();
-                contextMenu.Show(dgvSheets, new System.Drawing.Point(e.X, e.Y));
-            }
-        }
-
-        private ContextMenu SheetsContextMenu()
-        {
-            ContextMenu mnu = new ContextMenu();
-            MenuItem cxmnuSetAll = new MenuItem("Set All");
-            MenuItem cxmnuUnsetAll = new MenuItem("Unset All");
-
-            cxmnuSetAll.Click += new EventHandler(cxmnuSelectAll_Click);
-            cxmnuUnsetAll.Click += new EventHandler(cxmnuUnselectAll_Click);
-
-            mnu.MenuItems.Add(cxmnuSetAll);
-            mnu.MenuItems.Add(cxmnuUnsetAll);
-
-            return mnu;
-        }
-
-        private void cxmnuUnselectAll_Click(object sender, EventArgs e)
-        {
             foreach (DataGridViewRow row in dgvSheets.Rows)
-                row.Cells["Set"].Value = false;
-        }
-
-        private void cxmnuSelectAll_Click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow row in dgvSheets.Rows)
-                row.Cells["Set"].Value = true;
-        }
-
-        private bool RevisionIsOnSheet(ViewSheet viewSheet, int sequence)
-        {
-            IList<ElementId> revisionIds = viewSheet.GetAllRevisionIds();
-            bool flag = false;
-
-            foreach (ElementId i in revisionIds)
             {
-                Element elem = myRevitDoc.GetElement(i);
-                Revision r = elem as Revision;
+                bool set = bool.Parse(row.Cells["Set"].Value.ToString());
 
-                if (r.SequenceNumber == sequence) flag = true; else flag = false;
-                if (flag) break;
+                if (set)
+                    row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
+                else
+                    row.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             }
-            return flag;
+
+            DrawingControl.ResumeDrawing(dgvSheets);
+        }
+
+        private void LoadRevisions(System.Windows.Forms.ComboBox comboBox)
+        {
+            FilteredElementCollector revCol = new FilteredElementCollector(myRevitDoc);
+            revisions_ENTIRE_PROJECT = revCol.OfClass(typeof(Revision)).ToElements();
+
+            foreach (Revision revision in revisions_ENTIRE_PROJECT)
+            {
+                string seq = RevisionSequenceName(revision, revision.Description);
+
+                if (!comboBox.Items.Contains(seq)) comboBox.Items.Add(seq);
+            }
         }
 
         private void RemoveRevisionOnSheet(ViewSheet viewSheet, Revision revisionToRemove)
@@ -226,6 +191,56 @@ namespace RevisionOnSheets
             DrawingControl.ResumeDrawing(dataGridView);
         }
 
+        #endregion
+
+        #region Functions
+
+        private int RevisionSequenceNumber(string selectedSequenceName)
+        {
+            int seqNum = 0;
+
+            int from = selectedSequenceName.IndexOf("Seq. ") + "Seq. ".Length;
+            int to = selectedSequenceName.IndexOf(" - ");
+
+            string num = selectedSequenceName.Substring(from, to - from);
+            num = num.Trim();
+
+            seqNum = int.Parse(num);
+
+            return seqNum;
+        }
+
+        private ContextMenu SheetsContextMenu()
+        {
+            ContextMenu mnu = new ContextMenu();
+            MenuItem cxmnuSetAll = new MenuItem("Set All");
+            MenuItem cxmnuUnsetAll = new MenuItem("Unset All");
+
+            cxmnuSetAll.Click += new EventHandler(cxmnuSelectAll_Click);
+            cxmnuUnsetAll.Click += new EventHandler(cxmnuUnselectAll_Click);
+
+            mnu.MenuItems.Add(cxmnuSetAll);
+            mnu.MenuItems.Add(cxmnuUnsetAll);
+
+            return mnu;
+        }
+
+        private bool RevisionIsOnSheet(ViewSheet viewSheet, int sequence)
+        {
+            IList<ElementId> revisionIds = viewSheet.GetAllRevisionIds();
+            bool flag = false;
+
+            foreach (ElementId i in revisionIds)
+            {
+                Element elem = myRevitDoc.GetElement(i);
+                Revision r = elem as Revision;
+
+                if (r.SequenceNumber == sequence) flag = true; else flag = false;
+                if (flag) break;
+            }
+            return flag;
+        }
+
         private string RevisionSequenceName(Revision revision, string desc)
         {
             string seqName = string.Empty;
@@ -234,16 +249,29 @@ namespace RevisionOnSheets
             return seqName;
         }
 
-        private void LoadRevisions(System.Windows.Forms.ComboBox comboBox)
+        #endregion
+
+        #region Events
+
+        private void cxmnuUnselectAll_Click(object sender, EventArgs e)
         {
-            FilteredElementCollector revCol = new FilteredElementCollector(myRevitDoc);
-            revisions_ENTIRE_PROJECT = revCol.OfClass(typeof(Revision)).ToElements();
+            foreach (DataGridViewRow row in dgvSheets.Rows)
+                row.Cells["Set"].Value = false;
+        }
 
-            foreach (Revision revision in revisions_ENTIRE_PROJECT)
+        private void cxmnuSelectAll_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvSheets.Rows)
+                row.Cells["Set"].Value = true;
+        }
+
+        private void dgvSheets_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
             {
-                string seq = RevisionSequenceName(revision, revision.Description);
-
-                if (!comboBox.Items.Contains(seq)) comboBox.Items.Add(seq);
+                ContextMenu contextMenu = new ContextMenu();
+                contextMenu = SheetsContextMenu();
+                contextMenu.Show(dgvSheets, new System.Drawing.Point(e.X, e.Y));
             }
         }
 
@@ -257,6 +285,68 @@ namespace RevisionOnSheets
         {
             SetRevisionOnSheets();
         }
+
+        private void dgvSheets_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == (Keys.ShiftKey | Keys.Shift))
+                shiftKeyIsDown = true;
+
+            if (dgvSheets.SelectedRows.Count == 1)
+            {
+                if (e.KeyData == (Keys.Space))
+                {
+                    DataGridViewSelectedRowCollection rows = dgvSheets.SelectedRows;
+
+                    foreach (DataGridViewRow row in rows)
+                    {
+                        bool set = bool.Parse(row.Cells["Set"].Value.ToString());
+                        row.Cells["Set"].Value = !set;
+
+                        if (bool.Parse(row.Cells["Set"].Value.ToString()) == true)
+                            row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
+                        else
+                            row.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+                    }
+                }
+            }
+        }
+
+        private void dgvSheets_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == (Keys.ShiftKey | Keys.Shift))
+                shiftKeyIsDown = false;
+        }
+
+        private void dgvSheets_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && shiftKeyIsDown
+                && dgvSheets.CurrentCell is DataGridViewCheckBoxCell)
+            {
+                foreach (DataGridViewColumn col in dgvSheets.Columns)
+                    foreach (DataGridViewRow row in dgvSheets.Rows)
+                        if (dgvSheets[col.Index, row.Index] is DataGridViewCheckBoxCell)
+                            if (row.Selected)
+                            {
+                                bool set = bool.Parse(dgvSheets[col.Index, row.Index].Value.ToString());
+                                row.Cells["Set"].Value = !set;
+
+                                if (bool.Parse(row.Cells["Set"].Value.ToString()))
+                                    row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
+                                else
+                                    row.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+                            }
+
+            }
+
+            ColorRows();
+        }
+
+        private void btnAppy_Click(object sender, EventArgs e)
+        {
+            SetRevisionOnSheets();
+        }
+
+        #endregion
 
         public static class DrawingControl
         {
@@ -316,84 +406,6 @@ namespace RevisionOnSheets
                 }
             }
         }
-
-        private void dgvSheets_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == (Keys.ShiftKey | Keys.Shift))
-                shiftKeyIsDown = true;
-
-            if (dgvSheets.SelectedRows.Count == 1)
-            {
-                if (e.KeyData == (Keys.Space))
-                {
-                    DataGridViewSelectedRowCollection rows = dgvSheets.SelectedRows;
-                
-                    foreach (DataGridViewRow row in rows)
-                    {
-                        bool set = bool.Parse(row.Cells["Set"].Value.ToString());
-                        row.Cells["Set"].Value = !set;
-
-                        if (bool.Parse(row.Cells["Set"].Value.ToString()) == true)
-                            row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
-                        else
-                            row.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-                    }
-                }
-            }
-        }
-
-        private void ColorRows()
-        {
-            DrawingControl.SetDoubleBuffered(dgvSheets);
-            DrawingControl.SuspendDrawing(dgvSheets);
-
-            foreach (DataGridViewRow row in dgvSheets.Rows)
-            {
-                bool set = bool.Parse(row.Cells["Set"].Value.ToString());
-
-                if (set)
-                    row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
-                else
-                    row.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            }
-
-            DrawingControl.ResumeDrawing(dgvSheets);
-        }
-
-        private void dgvSheets_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == (Keys.ShiftKey | Keys.Shift))
-                shiftKeyIsDown = false;
-        }
-
-        private void dgvSheets_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left && shiftKeyIsDown 
-                && dgvSheets.CurrentCell is DataGridViewCheckBoxCell)
-            {
-                foreach (DataGridViewColumn col in dgvSheets.Columns)
-                    foreach (DataGridViewRow row in dgvSheets.Rows)
-                        if (dgvSheets[col.Index, row.Index] is DataGridViewCheckBoxCell)
-                            if (row.Selected)
-                            {
-                                bool set = bool.Parse(dgvSheets[col.Index, row.Index].Value.ToString());
-                                row.Cells["Set"].Value = !set;
-
-                                if (bool.Parse(row.Cells["Set"].Value.ToString()))
-                                    row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
-                                else
-                                    row.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-                            }
-                
-            }
-
-            ColorRows();
-        }
-
-        private void btnAppy_Click(object sender, EventArgs e)
-        {
-            SetRevisionOnSheets();
-        }
-
+        
     }
 }
