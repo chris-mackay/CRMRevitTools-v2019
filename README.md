@@ -45,7 +45,7 @@
 ![CreateSheetSet](Readme_Images/create_sheet_set.gif?raw=true "CreateSheetSet")
 ## Sheet Renamer
 ![SheetRenamer](Readme_Images/sheet_renamer.gif?raw=true "SheetRenamer")
-## Insert into Project Parameters
-![InsertIntoProjectParameters](Readme_Images/insert_parameters.gif?raw=true "InsertIntoProjectParameters")
+## Insert Parameters
+![InsertParameters](Readme_Images/insert_parameters.gif?raw=true "InsertParameters")
 ## Revision On Sheets
 ![RevisionOnSheets](Readme_Images/revision_on_sheets.gif?raw=true "RevisionOnSheets")
