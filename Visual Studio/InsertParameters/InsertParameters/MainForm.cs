@@ -464,10 +464,14 @@ namespace InsertParameters
                     
                     string guid = arr[1];
                     string paramName = arr[2];
+                    string paramType = arr[3];
                     string groupNum = arr[5];
                     string groupName = groupDict[groupNum];
 
-                    string entry = paramName + "\t" + guid + "\t" + groupName + "\t";
+                    string entry = guid + "\t" +
+                                   paramName + "\t" +
+                                   paramType + "\t" +
+                                   groupName + "\t";
 
                     paramList.Add(entry);
                     
@@ -817,11 +821,12 @@ namespace InsertParameters
                     char[] chrSeparator = new char[] { '\t' };
                     string[] arrValues = item.Split(chrSeparator, StringSplitOptions.None);
 
-                    string paramName = arrValues[0];
-                    string paramGroup = arrValues[2];
+                    string paramName = arrValues[1];
+                    string paramType = arrValues[2];
+                    string paramGroup = arrValues[3];
 
                     if (!familyParamList.Contains(paramName))
-                        dgvSharedParameters.Rows.Add(paramName, paramGroup, "", "", "");
+                        dgvSharedParameters.Rows.Add(paramName, paramGroup, paramType, "", "");
                 }
             }
             else
@@ -833,11 +838,12 @@ namespace InsertParameters
                     char[] chrSeparator = new char[] { '\t' };
                     string[] arrValues = item.Split(chrSeparator, StringSplitOptions.None);
 
-                    string paramName = arrValues[0];
-                    string paramGroup = arrValues[2];
+                    string paramName = arrValues[1];
+                    string paramType = arrValues[2];
+                    string paramGroup = arrValues[3];
 
                     if (!projectParamList.Contains(paramName))
-                        dgvSharedParameters.Rows.Add(paramName, paramGroup, "", "", "");
+                        dgvSharedParameters.Rows.Add(paramName, paramGroup, paramType, "", "", "");
                 }
             }
 
