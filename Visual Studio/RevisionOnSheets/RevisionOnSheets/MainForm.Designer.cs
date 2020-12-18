@@ -209,7 +209,7 @@ namespace RevisionOnSheets
             this.Controls.Add(this.dgvSheets);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(614, 661);
+            this.MinimumSize = new System.Drawing.Size(614, 391);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
