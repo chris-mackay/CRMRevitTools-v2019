@@ -85,7 +85,7 @@ namespace InsertParameters
             string[] lines = File.ReadAllLines(fInfo.FullName);
 
             if (lines.Length != 0)
-                if (lines[0] != "# This is a Revit shared parameter file.") return false;
+                if (!lines[0].Contains("# This is a Revit shared parameter file.")) return false;
 
             return true;
         }
