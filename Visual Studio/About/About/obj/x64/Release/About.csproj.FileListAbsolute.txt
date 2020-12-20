@@ -1,6 +1,5 @@
 C:\Programming\CRMRevitTools-v2019\Visual Studio\About\About\bin\x64\Release\About.dll
 C:\Programming\CRMRevitTools-v2019\Visual Studio\About\About\bin\x64\Release\About.pdb
-C:\Programming\CRMRevitTools-v2019\Visual Studio\About\About\obj\x64\Release\About.csprojAssemblyReference.cache
 C:\Programming\CRMRevitTools-v2019\Visual Studio\About\About\obj\x64\Release\About.MainForm.resources
 C:\Programming\CRMRevitTools-v2019\Visual Studio\About\About\obj\x64\Release\About.csproj.GenerateResource.cache
 C:\Programming\CRMRevitTools-v2019\Visual Studio\About\About\obj\x64\Release\About.dll
