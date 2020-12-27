@@ -1,0 +1,3 @@
+C:\Programming\CRMRevitTools-v2019\Visual Studio\PurgeParameters\PurgeParameters\obj\Debug\PurgeParameters.csprojAssemblyReference.cache
+C:\Programming\CRMRevitTools-v2019\Visual Studio\PurgeParameters\PurgeParameters\obj\Debug\PurgeParameters.MainForm.resources
+C:\Programming\CRMRevitTools-v2019\Visual Studio\PurgeParameters\PurgeParameters\obj\Debug\PurgeParameters.csproj.GenerateResource.cache

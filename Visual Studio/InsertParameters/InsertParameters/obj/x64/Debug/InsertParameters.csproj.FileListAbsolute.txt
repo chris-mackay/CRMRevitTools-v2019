@@ -1,0 +1,9 @@
+C:\Programming\CRMRevitTools-v2019\Visual Studio\InsertParameters\InsertParameters\bin\x64\Debug\InsertParameters.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\InsertParameters\InsertParameters\bin\x64\Debug\InsertParameters.pdb
+C:\Programming\CRMRevitTools-v2019\Visual Studio\InsertParameters\InsertParameters\obj\x64\Debug\InsertParameters.csprojAssemblyReference.cache
+C:\Programming\CRMRevitTools-v2019\Visual Studio\InsertParameters\InsertParameters\obj\x64\Debug\InsertParameters.frmSelectionBox.resources
+C:\Programming\CRMRevitTools-v2019\Visual Studio\InsertParameters\InsertParameters\obj\x64\Debug\InsertParameters.MainForm.resources
+C:\Programming\CRMRevitTools-v2019\Visual Studio\InsertParameters\InsertParameters\obj\x64\Debug\InsertParameters.Properties.Resources.resources
+C:\Programming\CRMRevitTools-v2019\Visual Studio\InsertParameters\InsertParameters\obj\x64\Debug\InsertParameters.csproj.GenerateResource.cache
+C:\Programming\CRMRevitTools-v2019\Visual Studio\InsertParameters\InsertParameters\obj\x64\Debug\InsertParameters.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\InsertParameters\InsertParameters\obj\x64\Debug\InsertParameters.pdb

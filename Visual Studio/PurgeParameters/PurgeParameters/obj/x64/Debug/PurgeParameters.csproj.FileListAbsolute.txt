@@ -1,0 +1,7 @@
+C:\Programming\CRMRevitTools-v2019\Visual Studio\PurgeParameters\PurgeParameters\bin\x64\Debug\PurgeParameters.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\PurgeParameters\PurgeParameters\bin\x64\Debug\PurgeParameters.pdb
+C:\Programming\CRMRevitTools-v2019\Visual Studio\PurgeParameters\PurgeParameters\obj\x64\Debug\PurgeParameters.MainForm.resources
+C:\Programming\CRMRevitTools-v2019\Visual Studio\PurgeParameters\PurgeParameters\obj\x64\Debug\PurgeParameters.Properties.Resources.resources
+C:\Programming\CRMRevitTools-v2019\Visual Studio\PurgeParameters\PurgeParameters\obj\x64\Debug\PurgeParameters.csproj.GenerateResource.cache
+C:\Programming\CRMRevitTools-v2019\Visual Studio\PurgeParameters\PurgeParameters\obj\x64\Debug\PurgeParameters.dll
+C:\Programming\CRMRevitTools-v2019\Visual Studio\PurgeParameters\PurgeParameters\obj\x64\Debug\PurgeParameters.pdb
