@@ -15,7 +15,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
@@ -2123,14 +2125,25 @@ namespace PurgeParameters
         private ContextMenu TableContextMenu()
         {
             ContextMenu mnu = new ContextMenu();
-            MenuItem cxmnuSetAll = new MenuItem("Set All");
-            MenuItem cxmnuUnsetAll = new MenuItem("Unset All");
+            MenuItem cxmnuSetAll = new MenuItem("Check All");
+            MenuItem cxmnuUnsetAll = new MenuItem("Uncheck All");
+            
+            MenuItem cxmnuCopyElementId = new MenuItem("Copy Element Id");
+            MenuItem cxmnuCopyGUID = new MenuItem("Copy GUID");
+            MenuItem cxmnuCopyName = new MenuItem("Copy Parameter Name");
 
             cxmnuSetAll.Click += new EventHandler(cxmnuSelectAll_Click);
             cxmnuUnsetAll.Click += new EventHandler(cxmnuUnselectAll_Click);
+            cxmnuCopyElementId.Click += new EventHandler(cxmnuCopyElementId_Click);
+            cxmnuCopyGUID.Click += new EventHandler(cxmnuCopyGUID_Click);
+            cxmnuCopyName.Click += new EventHandler(cxmnuCopyName_Click);
 
             mnu.MenuItems.Add(cxmnuSetAll);
             mnu.MenuItems.Add(cxmnuUnsetAll);
+            mnu.MenuItems.Add("-");
+            mnu.MenuItems.Add(cxmnuCopyElementId);
+            mnu.MenuItems.Add(cxmnuCopyGUID);
+            mnu.MenuItems.Add(cxmnuCopyName);
 
             return mnu;
         }
@@ -2141,14 +2154,44 @@ namespace PurgeParameters
 
         private void cxmnuUnselectAll_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvParameters.Rows)
+            if (dgvParameters.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvParameters.Rows)
                 row.Cells["Purge"].Value = false;
+            }
         }
 
         private void cxmnuSelectAll_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dgvParameters.Rows)
                 row.Cells["Purge"].Value = true;
+        }
+
+        private void cxmnuCopyElementId_Click(object sender, EventArgs e)
+        {
+            if (dgvParameters.Rows.Count > 0 && dgvParameters.SelectedRows.Count > 0)
+            {
+                string Id = dgvParameters.CurrentRow.Cells["ElementId"].Value.ToString();
+                Clipboard.SetText(Id);
+            }
+        }
+
+        private void cxmnuCopyGUID_Click(object sender, EventArgs e)
+        {
+            if (dgvParameters.Rows.Count > 0 && dgvParameters.SelectedRows.Count > 0)
+            {
+                string guid = dgvParameters.CurrentRow.Cells["GUID"].Value.ToString();
+                Clipboard.SetText(guid);
+            }
+        }
+
+        private void cxmnuCopyName_Click(object sender, EventArgs e)
+        {
+            if (dgvParameters.Rows.Count > 0 && dgvParameters.SelectedRows.Count > 0)
+            {
+                string name = dgvParameters.CurrentRow.Cells["ParamName"].Value.ToString();
+                Clipboard.SetText(name);
+            }
         }
 
         #endregion
@@ -2259,6 +2302,8 @@ namespace PurgeParameters
 
         private void btnPurge_Click(object sender, EventArgs e)
         {
+            StringBuilder sb = new StringBuilder();
+
             Transaction trans = new Transaction(doc);
             trans.Start("Purge Parameters");
 
@@ -2270,22 +2315,56 @@ namespace PurgeParameters
 
                 if (purge)
                 {
+                    string name = row.Cells["ParamName"].Value.ToString();
                     string pId = row.Cells["ElementId"].Value.ToString();
                     int idInt = Convert.ToInt32(pId);
+
+                    sb.Append(name + "\n");
+
                     ElementId id = new ElementId(idInt);
-                
                     elementIds.Add(id);
                 }
             }
 
-            foreach (ElementId id in elementIds)
+            TaskDialog td = new TaskDialog("Purge Parameters");
+            td.CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No;
+            td.MainIcon = TaskDialogIcon.TaskDialogIconWarning;
+            td.MainInstruction = "Are you sure you want to purge the Shared Parameters below?";
+            td.MainContent = "Once a parameter is purged it will be physically removed from the Revit Project, Tags, Schedules, and Families. " + 
+                             "To use this parameter again it will need to be re-inserted in the Project and any Tags, Schedules, and Families.\n\n" + sb.ToString();
+            
+            if (td.Show() == TaskDialogResult.Yes)
             {
-                doc.Delete(id);
+                foreach (ElementId id in elementIds)
+                {
+                    doc.Delete(id);
+                }
+
+                trans.Commit();
+
+                LoadParameters();
             }
+            else
+            {
+                trans.Dispose();
+            }
+        }
 
-            trans.Commit();
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            using (Font myFont = new Font("Segoe UI", 12))
+            {
+                var brush = new SolidBrush(System.Drawing.Color.FromArgb(0, 51, 188));
 
-            LoadParameters();
+                e.Graphics.DrawString("Select the BuiltInCategory from the dropdown list to load it's associated\n" +
+                                      "Shared Parameters. Tick the checkbox next to the Shared Parameters that you\n" +
+                                      "want to purge. NOTE: At least one family of the selected BuiltInCategory must\n" +
+                                      "be loaded into the project to load it's associated parameters.\n\n" +
+                                      "Purging a Shared Parameter will physically remove it from the Revit Project,\n" +
+                                      "Tags, Schedules, and Families. To use this parameter again it will need to be\n" + 
+                                      "re-inserted in the Project and any Tags, Schedules, and Families."
+                                      , myFont, brush, new System.Drawing.Point(0, 0));
+            }
         }
     }
 }

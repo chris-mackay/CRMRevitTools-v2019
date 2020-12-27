@@ -43,21 +43,23 @@ namespace PurgeParameters
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvParameters = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnPurge = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbCategories = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ElementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ParamType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ParamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Purge = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameters)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvParameters
@@ -65,24 +67,23 @@ namespace PurgeParameters
             this.dgvParameters.AllowUserToAddRows = false;
             this.dgvParameters.AllowUserToDeleteRows = false;
             this.dgvParameters.AllowUserToOrderColumns = true;
-            this.dgvParameters.AllowUserToResizeColumns = false;
             this.dgvParameters.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dgvParameters.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.dgvParameters.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvParameters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvParameters.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvParameters.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvParameters.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvParameters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvParameters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvParameters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvParameters.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ElementId,
@@ -91,13 +92,13 @@ namespace PurgeParameters
             this.ParamName,
             this.Purge});
             this.dgvParameters.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvParameters.Location = new System.Drawing.Point(12, 140);
+            this.dgvParameters.Location = new System.Drawing.Point(12, 250);
             this.dgvParameters.Name = "dgvParameters";
             this.dgvParameters.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvParameters.RowHeadersVisible = false;
             this.dgvParameters.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             this.dgvParameters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvParameters.Size = new System.Drawing.Size(574, 436);
+            this.dgvParameters.Size = new System.Drawing.Size(580, 350);
             this.dgvParameters.TabIndex = 3;
             this.dgvParameters.TabStop = false;
             this.dgvParameters.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvSheets_MouseUp);
@@ -106,7 +107,7 @@ namespace PurgeParameters
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnClose.Location = new System.Drawing.Point(511, 587);
+            this.btnClose.Location = new System.Drawing.Point(517, 627);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 6;
@@ -117,7 +118,7 @@ namespace PurgeParameters
             // btnPurge
             // 
             this.btnPurge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPurge.Location = new System.Drawing.Point(430, 587);
+            this.btnPurge.Location = new System.Drawing.Point(436, 627);
             this.btnPurge.Name = "btnPurge";
             this.btnPurge.Size = new System.Drawing.Size(75, 23);
             this.btnPurge.TabIndex = 4;
@@ -125,23 +126,15 @@ namespace PurgeParameters
             this.btnPurge.UseVisualStyleBackColor = true;
             this.btnPurge.Click += new System.EventHandler(this.btnPurge_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(486, 65);
-            this.label2.TabIndex = 7;
-            this.label2.Text = resources.GetString("label2.Text");
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 110);
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 224);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Category";
+            this.label1.Text = "BuiltInCategory";
             // 
             // cbCategories
             // 
@@ -149,13 +142,36 @@ namespace PurgeParameters
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategories.FormattingEnabled = true;
-            this.cbCategories.Location = new System.Drawing.Point(106, 102);
+            this.cbCategories.Location = new System.Drawing.Point(106, 216);
             this.cbCategories.Name = "cbCategories";
-            this.cbCategories.Size = new System.Drawing.Size(480, 21);
+            this.cbCategories.Size = new System.Drawing.Size(486, 21);
             this.cbCategories.Sorted = true;
             this.cbCategories.TabIndex = 9;
             this.cbCategories.TabStop = false;
             this.cbCategories.SelectedIndexChanged += new System.EventHandler(this.cbCategories_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(604, 613);
+            this.panel1.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(580, 198);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // ElementId
             // 
@@ -168,30 +184,33 @@ namespace PurgeParameters
             // 
             // ParamType
             // 
+            this.ParamType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.ParamType.HeaderText = "Parameter Type";
             this.ParamType.Name = "ParamType";
+            this.ParamType.ReadOnly = true;
+            this.ParamType.Width = 107;
             // 
             // GUID
             // 
-            this.GUID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.GUID.HeaderText = "GUID";
             this.GUID.Name = "GUID";
+            this.GUID.ReadOnly = true;
             this.GUID.Width = 59;
             // 
             // ParamName
             // 
-            this.ParamName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.ParamName.FillWeight = 92.8934F;
             this.ParamName.HeaderText = "Parameter Name";
             this.ParamName.Name = "ParamName";
             this.ParamName.ReadOnly = true;
-            this.ParamName.Width = 111;
+            this.ParamName.Width = 279;
             // 
             // Purge
             // 
             this.Purge.FillWeight = 92.8934F;
             this.Purge.HeaderText = "Purge";
             this.Purge.Name = "Purge";
+            this.Purge.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Purge.Width = 50;
             // 
             // MainForm
@@ -200,22 +219,24 @@ namespace PurgeParameters
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(598, 622);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(604, 662);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbCategories);
             this.Controls.Add(this.btnPurge);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvParameters);
+            this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(614, 391);
+            this.MinimumSize = new System.Drawing.Size(620, 391);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purge Parameters";
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameters)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,9 +246,10 @@ namespace PurgeParameters
         private System.Windows.Forms.Button btnClose;
         public System.Windows.Forms.DataGridView dgvParameters;
         private System.Windows.Forms.Button btnPurge;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ComboBox cbCategories;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ElementId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ParamType;
         private System.Windows.Forms.DataGridViewTextBoxColumn GUID;
