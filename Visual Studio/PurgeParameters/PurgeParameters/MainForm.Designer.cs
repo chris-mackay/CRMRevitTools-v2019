@@ -45,21 +45,19 @@ namespace PurgeParameters
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dgvParameters = new System.Windows.Forms.DataGridView();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnPurge = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbCategories = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ElementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ParamType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ParamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Purge = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnPurge = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbCategories = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameters)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvParameters
@@ -92,86 +90,16 @@ namespace PurgeParameters
             this.ParamName,
             this.Purge});
             this.dgvParameters.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvParameters.Location = new System.Drawing.Point(12, 250);
+            this.dgvParameters.Location = new System.Drawing.Point(12, 155);
             this.dgvParameters.Name = "dgvParameters";
             this.dgvParameters.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvParameters.RowHeadersVisible = false;
             this.dgvParameters.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             this.dgvParameters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvParameters.Size = new System.Drawing.Size(580, 350);
+            this.dgvParameters.Size = new System.Drawing.Size(580, 466);
             this.dgvParameters.TabIndex = 3;
             this.dgvParameters.TabStop = false;
             this.dgvParameters.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvSheets_MouseUp);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnClose.Location = new System.Drawing.Point(517, 627);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 6;
-            this.btnClose.TabStop = false;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // btnPurge
-            // 
-            this.btnPurge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPurge.Location = new System.Drawing.Point(436, 627);
-            this.btnPurge.Name = "btnPurge";
-            this.btnPurge.Size = new System.Drawing.Size(75, 23);
-            this.btnPurge.TabIndex = 4;
-            this.btnPurge.Text = "Purge";
-            this.btnPurge.UseVisualStyleBackColor = true;
-            this.btnPurge.Click += new System.EventHandler(this.btnPurge_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 224);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "BuiltInCategory";
-            // 
-            // cbCategories
-            // 
-            this.cbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCategories.FormattingEnabled = true;
-            this.cbCategories.Location = new System.Drawing.Point(106, 216);
-            this.cbCategories.Name = "cbCategories";
-            this.cbCategories.Size = new System.Drawing.Size(486, 21);
-            this.cbCategories.Sorted = true;
-            this.cbCategories.TabIndex = 9;
-            this.cbCategories.TabStop = false;
-            this.cbCategories.SelectedIndexChanged += new System.EventHandler(this.cbCategories_SelectedIndexChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(604, 613);
-            this.panel1.TabIndex = 10;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(580, 198);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // ElementId
             // 
@@ -213,6 +141,62 @@ namespace PurgeParameters
             this.Purge.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Purge.Width = 50;
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnClose.Location = new System.Drawing.Point(517, 627);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 6;
+            this.btnClose.TabStop = false;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
+            // btnPurge
+            // 
+            this.btnPurge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPurge.Location = new System.Drawing.Point(436, 627);
+            this.btnPurge.Name = "btnPurge";
+            this.btnPurge.Size = new System.Drawing.Size(75, 23);
+            this.btnPurge.TabIndex = 4;
+            this.btnPurge.Text = "Purge";
+            this.btnPurge.UseVisualStyleBackColor = true;
+            this.btnPurge.Click += new System.EventHandler(this.btnPurge_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(12, 130);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "BuiltInCategory";
+            // 
+            // cbCategories
+            // 
+            this.cbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCategories.FormattingEnabled = true;
+            this.cbCategories.Location = new System.Drawing.Point(106, 122);
+            this.cbCategories.Name = "cbCategories";
+            this.cbCategories.Size = new System.Drawing.Size(486, 21);
+            this.cbCategories.Sorted = true;
+            this.cbCategories.TabIndex = 9;
+            this.cbCategories.TabStop = false;
+            this.cbCategories.SelectedIndexChanged += new System.EventHandler(this.cbCategories_SelectedIndexChanged);
+            this.cbCategories.TextChanged += new System.EventHandler(this.cbCategories_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(548, 78);
+            this.label2.TabIndex = 10;
+            this.label2.Text = resources.GetString("label2.Text");
+            // 
             // MainForm
             // 
             this.AcceptButton = this.btnPurge;
@@ -220,12 +204,12 @@ namespace PurgeParameters
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(604, 662);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbCategories);
             this.Controls.Add(this.btnPurge);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvParameters);
-            this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(620, 391);
@@ -235,8 +219,6 @@ namespace PurgeParameters
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purge Parameters";
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameters)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,12 +230,11 @@ namespace PurgeParameters
         private System.Windows.Forms.Button btnPurge;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ComboBox cbCategories;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ElementId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ParamType;
         private System.Windows.Forms.DataGridViewTextBoxColumn GUID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ParamName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Purge;
+        private System.Windows.Forms.Label label2;
     }
 }

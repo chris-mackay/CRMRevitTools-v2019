@@ -123,4 +123,12 @@
   <metadata name="GUID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Select the BuiltInCategory from the dropdown list to load it's associated Shared Parameters. Tick the checkbox 
+next to the Shared Parameters that you want to purge. At least one family of the selected BuiltInCategory must 
+be loaded into the project to load it's associated parameters.
+
+NOTE: Purging a Shared Parameter will physically remove it from the Revit Project, Tags, Schedules, and Families. 
+To use this parameter again it will need to be re-inserted in the Project and any Tags, Schedules, and Families.</value>
+  </data>
 </root>

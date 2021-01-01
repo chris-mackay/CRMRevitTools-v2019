@@ -21,6 +21,7 @@ using System.Text;
 using System.Windows.Forms;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using System.Linq;
 
 namespace PurgeParameters
 {
@@ -2194,6 +2195,108 @@ namespace PurgeParameters
             }
         }
 
+        private void dgvSheets_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ContextMenu contextMenu = new ContextMenu();
+                contextMenu = TableContextMenu();
+                contextMenu.Show(dgvParameters, new System.Drawing.Point(e.X, e.Y));
+            }
+        }
+
+        private void LoadParameters()
+        {
+            dgvParameters.Rows.Clear();
+
+            string cat = cbCategories.Text;
+            Dictionary<string, BuiltInCategory> catDict = BuiltInCategoryDictionary();
+
+            if(catDict.ContainsKey(cat))
+            {
+                BuiltInCategory builtInCategory = catDict[cat];
+
+                FilteredElementCollector elems = new FilteredElementCollector(doc);
+                elems = elems.OfCategory(builtInCategory);
+
+                DrawingControl.SetDoubleBuffered(dgvParameters);
+                DrawingControl.SuspendDrawing(dgvParameters);
+
+                List<Parameter> parameters = new List<Parameter>();
+
+                foreach (Element elem in elems)
+                {
+                    ParameterSet pSet = elem.Parameters;
+
+                    foreach (Parameter p in pSet)
+                        if (p.IsShared)
+                            if (!parameters.Any(r => r.Id == p.Id))
+                                parameters.Add(p);
+                }
+
+                foreach (Parameter p in parameters)
+                    dgvParameters.Rows.Add(p.Id, p.Definition.ParameterType, p.GUID, p.Definition.Name);
+
+                DrawingControl.ResumeDrawing(dgvParameters);
+            }
+        }
+
+        private void cbCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadParameters();
+        }
+
+        private void cbCategories_TextChanged(object sender, EventArgs e)
+        {
+            LoadParameters();
+        }
+
+        private void btnPurge_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            Transaction trans = new Transaction(doc);
+            trans.Start("Purge Parameters");
+
+            IList<ElementId> elementIds = new List<ElementId>();
+
+            foreach (DataGridViewRow row in dgvParameters.Rows)
+            {
+                bool purge = Convert.ToBoolean(row.Cells["Purge"].Value);
+
+                if (purge)
+                {
+                    string name = row.Cells["ParamName"].Value.ToString();
+                    string pId = row.Cells["ElementId"].Value.ToString();
+                    int idInt = Convert.ToInt32(pId);
+
+                    sb.Append(name + "\n");
+
+                    ElementId id = new ElementId(idInt);
+                    elementIds.Add(id);
+                }
+            }
+
+            TaskDialog td = new TaskDialog("Purge Parameters");
+            td.CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No;
+            td.MainIcon = TaskDialogIcon.TaskDialogIconWarning;
+            td.MainInstruction = "Are you sure you want to purge the Shared Parameters below?";
+            td.MainContent = "Once a parameter is purged it will be physically removed from the Revit Project, Tags, Schedules, and Families. " +
+                             "To use this parameter again it will need to be re-inserted in the Project and any Tags, Schedules, and Families.\n\n" + sb.ToString();
+
+            if (td.Show() == TaskDialogResult.Yes)
+            {
+                foreach (ElementId id in elementIds)
+                    doc.Delete(id);
+
+                trans.Commit();
+
+                LoadParameters();
+            }
+            else
+                trans.Dispose();
+        }
+
         #endregion
 
         public static class DrawingControl
@@ -2252,118 +2355,6 @@ namespace PurgeParameters
                     SendMessage(ctrl.Handle, WM_SETREDRAW, true, 0);
                     ctrl.Refresh();
                 }
-            }
-        }
-
-        private void dgvSheets_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                ContextMenu contextMenu = new ContextMenu();
-                contextMenu = TableContextMenu();
-                contextMenu.Show(dgvParameters, new System.Drawing.Point(e.X, e.Y));
-            }
-        }
-
-        private void LoadParameters()
-        {
-            dgvParameters.Rows.Clear();
-
-            string cat = cbCategories.SelectedItem.ToString();
-            Dictionary<string, BuiltInCategory> catDict = BuiltInCategoryDictionary();
-            BuiltInCategory builtInCategory = catDict[cat];
-
-            FilteredElementCollector elems = new FilteredElementCollector(doc);
-            elems = elems.OfCategory(builtInCategory);
-
-            DrawingControl.SetDoubleBuffered(dgvParameters);
-            DrawingControl.SuspendDrawing(dgvParameters);
-
-            foreach (Element elem in elems)
-            {
-                ParameterSet pSet = elem.Parameters;
-
-                foreach (Parameter p in pSet)
-                {
-                    if (p.IsShared)
-                    {
-                        dgvParameters.Rows.Add(p.Id, p.Definition.ParameterType, p.GUID, p.Definition.Name);
-                    }
-                }
-            }
-
-            DrawingControl.ResumeDrawing(dgvParameters);
-        }
-
-        private void cbCategories_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadParameters();
-        }
-
-        private void btnPurge_Click(object sender, EventArgs e)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            Transaction trans = new Transaction(doc);
-            trans.Start("Purge Parameters");
-
-            IList<ElementId> elementIds = new List<ElementId>();
-
-            foreach (DataGridViewRow row in dgvParameters.Rows)
-            {
-                bool purge = Convert.ToBoolean(row.Cells["Purge"].Value);
-
-                if (purge)
-                {
-                    string name = row.Cells["ParamName"].Value.ToString();
-                    string pId = row.Cells["ElementId"].Value.ToString();
-                    int idInt = Convert.ToInt32(pId);
-
-                    sb.Append(name + "\n");
-
-                    ElementId id = new ElementId(idInt);
-                    elementIds.Add(id);
-                }
-            }
-
-            TaskDialog td = new TaskDialog("Purge Parameters");
-            td.CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No;
-            td.MainIcon = TaskDialogIcon.TaskDialogIconWarning;
-            td.MainInstruction = "Are you sure you want to purge the Shared Parameters below?";
-            td.MainContent = "Once a parameter is purged it will be physically removed from the Revit Project, Tags, Schedules, and Families. " + 
-                             "To use this parameter again it will need to be re-inserted in the Project and any Tags, Schedules, and Families.\n\n" + sb.ToString();
-            
-            if (td.Show() == TaskDialogResult.Yes)
-            {
-                foreach (ElementId id in elementIds)
-                {
-                    doc.Delete(id);
-                }
-
-                trans.Commit();
-
-                LoadParameters();
-            }
-            else
-            {
-                trans.Dispose();
-            }
-        }
-
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
-        {
-            using (Font myFont = new Font("Segoe UI", 12))
-            {
-                var brush = new SolidBrush(System.Drawing.Color.FromArgb(0, 51, 188));
-
-                e.Graphics.DrawString("Select the BuiltInCategory from the dropdown list to load it's associated\n" +
-                                      "Shared Parameters. Tick the checkbox next to the Shared Parameters that you\n" +
-                                      "want to purge. NOTE: At least one family of the selected BuiltInCategory must\n" +
-                                      "be loaded into the project to load it's associated parameters.\n\n" +
-                                      "Purging a Shared Parameter will physically remove it from the Revit Project,\n" +
-                                      "Tags, Schedules, and Families. To use this parameter again it will need to be\n" + 
-                                      "re-inserted in the Project and any Tags, Schedules, and Families."
-                                      , myFont, brush, new System.Drawing.Point(0, 0));
             }
         }
     }
