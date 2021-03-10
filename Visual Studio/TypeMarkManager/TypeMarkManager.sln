@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeMarkManager", "TypeMarkManager\TypeMarkManager.csproj", "{5C6F5CC1-E0ED-460B-B8EF-87DF34AA34F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C6F5CC1-E0ED-460B-B8EF-87DF34AA34F4}.Debug|x64.ActiveCfg = Debug|x64
+		{5C6F5CC1-E0ED-460B-B8EF-87DF34AA34F4}.Debug|x64.Build.0 = Debug|x64
+		{5C6F5CC1-E0ED-460B-B8EF-87DF34AA34F4}.Release|x64.ActiveCfg = Release|x64
+		{5C6F5CC1-E0ED-460B-B8EF-87DF34AA34F4}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6406ABB9-726D-4EF9-A512-D98239BE7559}
+	EndGlobalSection
+EndGlobal
