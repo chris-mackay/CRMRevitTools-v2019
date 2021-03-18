@@ -33,7 +33,14 @@ namespace TypeMarkManager
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            FilteredElementCollector famCol = new FilteredElementCollector(doc);
+            var fams = famCol.WhereElementIsElementType().ToElements();
+            dataGridView1.Rows.Clear();
 
+            foreach (var fam in fams)
+            {
+                dataGridView1.Rows.Add("", fam.Category.Id, fam.Name);
+            }
         }
     }
 }
