@@ -33,13 +33,19 @@ namespace TypeMarkManager
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            ElementCategoryFilter filter = new ElementCategoryFilter(BuiltInCategory.OST_DuctTerminal);
+
             FilteredElementCollector famCol = new FilteredElementCollector(doc);
-            var fams = famCol.WhereElementIsElementType().ToElements();
+            var fams = famCol.WherePasses(filter).WhereElementIsElementType().ToElements();
+
             dataGridView1.Rows.Clear();
 
             foreach (var fam in fams)
             {
-                dataGridView1.Rows.Add("", fam.Category.Id, fam.Name);
+                string typeMark = "";
+                typeMark = fam.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_MARK).AsString();
+
+                dataGridView1.Rows.Add(typeMark, fam.Name);
             }
         }
     }
