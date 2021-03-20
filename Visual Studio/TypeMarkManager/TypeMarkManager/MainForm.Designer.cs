@@ -28,27 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.cbCategories = new System.Windows.Forms.ComboBox();
-            this.dgvFamilyTypes = new System.Windows.Forms.DataGridView();
+            this.dgvData = new System.Windows.Forms.DataGridView();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnApply = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.colElementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTypeMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFamilyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnApply = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFamilyTypes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(11, 43);
+            this.label1.Location = new System.Drawing.Point(12, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
-            this.label1.TabIndex = 10;
+            this.label1.TabIndex = 1;
             this.label1.Text = "BuiltInCategory";
             // 
             // cbCategories
@@ -56,52 +61,93 @@
             this.cbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCategories.FormattingEnabled = true;
-            this.cbCategories.Location = new System.Drawing.Point(105, 35);
+            this.cbCategories.Location = new System.Drawing.Point(106, 122);
             this.cbCategories.Name = "cbCategories";
             this.cbCategories.Size = new System.Drawing.Size(487, 21);
             this.cbCategories.Sorted = true;
-            this.cbCategories.TabIndex = 11;
+            this.cbCategories.TabIndex = 2;
             this.cbCategories.TabStop = false;
             this.cbCategories.SelectedIndexChanged += new System.EventHandler(this.cbCategories_SelectedIndexChanged);
             this.cbCategories.TextChanged += new System.EventHandler(this.cbCategories_TextChanged);
             // 
-            // dgvFamilyTypes
+            // dgvData
             // 
-            this.dgvFamilyTypes.AllowUserToAddRows = false;
-            this.dgvFamilyTypes.AllowUserToDeleteRows = false;
-            this.dgvFamilyTypes.AllowUserToOrderColumns = true;
-            this.dgvFamilyTypes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dgvFamilyTypes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvFamilyTypes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.AllowUserToDeleteRows = false;
+            this.dgvData.AllowUserToOrderColumns = true;
+            this.dgvData.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.dgvData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvFamilyTypes.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvFamilyTypes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvFamilyTypes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFamilyTypes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvFamilyTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvFamilyTypes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvData.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colElementId,
             this.colTypeMark,
             this.colFamilyName,
             this.colTypeName});
-            this.dgvFamilyTypes.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvFamilyTypes.Location = new System.Drawing.Point(12, 82);
-            this.dgvFamilyTypes.Name = "dgvFamilyTypes";
-            this.dgvFamilyTypes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvFamilyTypes.RowHeadersVisible = false;
-            this.dgvFamilyTypes.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dgvFamilyTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFamilyTypes.Size = new System.Drawing.Size(580, 538);
-            this.dgvFamilyTypes.TabIndex = 12;
-            this.dgvFamilyTypes.TabStop = false;
+            this.dgvData.GridColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvData.Location = new System.Drawing.Point(12, 165);
+            this.dgvData.Name = "dgvData";
+            this.dgvData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvData.RowHeadersVisible = false;
+            this.dgvData.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvData.Size = new System.Drawing.Size(580, 455);
+            this.dgvData.TabIndex = 3;
+            this.dgvData.TabStop = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(517, 626);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 6;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnApply
+            // 
+            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApply.Location = new System.Drawing.Point(436, 626);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.TabIndex = 5;
+            this.btnApply.Text = "Apply";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(503, 91);
+            this.label2.TabIndex = 0;
+            this.label2.Text = resources.GetString("label2.Text");
+            // 
+            // colElementId
+            // 
+            this.colElementId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colElementId.HeaderText = "Element Id";
+            this.colElementId.Name = "colElementId";
+            this.colElementId.ReadOnly = true;
+            this.colElementId.Visible = false;
+            this.colElementId.Width = 82;
             // 
             // colTypeMark
             // 
@@ -113,6 +159,9 @@
             // colFamilyName
             // 
             this.colFamilyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gray;
+            this.colFamilyName.DefaultCellStyle = dataGridViewCellStyle3;
             this.colFamilyName.HeaderText = "Family Name";
             this.colFamilyName.Name = "colFamilyName";
             this.colFamilyName.ReadOnly = true;
@@ -121,30 +170,12 @@
             // colTypeName
             // 
             this.colTypeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
+            this.colTypeName.DefaultCellStyle = dataGridViewCellStyle4;
             this.colTypeName.HeaderText = "Type Name";
             this.colTypeName.Name = "colTypeName";
             this.colTypeName.ReadOnly = true;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(517, 626);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 13;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnApply
-            // 
-            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Location = new System.Drawing.Point(436, 626);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 23);
-            this.btnApply.TabIndex = 14;
-            this.btnApply.Text = "Apply";
-            this.btnApply.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -152,9 +183,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 661);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.dgvFamilyTypes);
+            this.Controls.Add(this.dgvData);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbCategories);
             this.MaximizeBox = false;
@@ -164,7 +196,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Type Mark Manager";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFamilyTypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,9 +206,11 @@
 
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ComboBox cbCategories;
-        public System.Windows.Forms.DataGridView dgvFamilyTypes;
+        public System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colElementId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTypeMark;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFamilyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTypeName;

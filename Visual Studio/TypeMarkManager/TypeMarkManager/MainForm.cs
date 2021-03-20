@@ -40,22 +40,49 @@ namespace TypeMarkManager
             cbCategories.SelectedIndex = 0;
         }
 
+        private void ClearValues()
+        {
+            TaskDialog td = new TaskDialog("Type Mark Manager");
+            td.MainIcon = TaskDialogIcon.TaskDialogIconNone;
+            td.MainInstruction = "Are you sure you want to clear the values of the selected cells?";
+            td.CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No;
+
+            if (td.Show() == TaskDialogResult.Yes)
+            {
+                foreach (DataGridViewCell cell in dgvData.SelectedCells)
+                    cell.Value = "";
+            }
+        }
+
+        private Element SelectElement(UIApplication _uiApp, ElementId _id)
+        {
+            Element elem = _uiApp.ActiveUIDocument.Document.GetElement(_id);
+            return elem;
+        }
+
+        private void UpdateParameterValue(Element _element, BuiltInParameter _builtInParameter, string _paramValue)
+        {
+            Parameter param = _element.get_Parameter(_builtInParameter);
+            param.Set(_paramValue);
+        }
+
         private void LoadFamilyTypes(ElementCategoryFilter filter)
         {
             FilteredElementCollector famCol = new FilteredElementCollector(doc);
             var fams = famCol.WherePasses(filter).WhereElementIsElementType().ToElements();
 
-            dgvFamilyTypes.Rows.Clear();
+            dgvData.Rows.Clear();
 
             foreach (var fam in fams)
             {
                 FamilySymbol famSymbol = fam as FamilySymbol;
 
+                string elemId = famSymbol.Id.ToString();
                 string typeMark = famSymbol.get_Parameter(BuiltInParameter.ALL_MODEL_TYPE_MARK).AsString();
-                string famName = famSymbol.FamilyName;
+                string famName = famSymbol.Family.Name;
                 string typeName = famSymbol.Name;
 
-                dgvFamilyTypes.Rows.Add(typeMark, famName, typeName);
+                dgvData.Rows.Add(elemId, typeMark, famName, typeName);
             }
         }
 
@@ -2121,10 +2148,10 @@ namespace TypeMarkManager
 
         private void cbCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DrawingControl.SuspendDrawing(dgvFamilyTypes);
-            DrawingControl.SetDoubleBuffered(dgvFamilyTypes);
+            DrawingControl.SuspendDrawing(dgvData);
+            DrawingControl.SetDoubleBuffered(dgvData);
 
-            dgvFamilyTypes.Rows.Clear();
+            dgvData.Rows.Clear();
 
             string cat = cbCategories.Text;
             Dictionary<string, BuiltInCategory> catDict = BuiltInCategoryDictionary();
@@ -2137,15 +2164,15 @@ namespace TypeMarkManager
                 LoadFamilyTypes(filter);
             }
 
-            DrawingControl.ResumeDrawing(dgvFamilyTypes);
+            DrawingControl.ResumeDrawing(dgvData);
         }
 
         private void cbCategories_TextChanged(object sender, EventArgs e)
         {
-            DrawingControl.SuspendDrawing(dgvFamilyTypes);
-            DrawingControl.SetDoubleBuffered(dgvFamilyTypes);
+            DrawingControl.SuspendDrawing(dgvData);
+            DrawingControl.SetDoubleBuffered(dgvData);
 
-            dgvFamilyTypes.Rows.Clear();
+            dgvData.Rows.Clear();
 
             string cat = cbCategories.Text;
             Dictionary<string, BuiltInCategory> catDict = BuiltInCategoryDictionary();
@@ -2158,12 +2185,50 @@ namespace TypeMarkManager
                 LoadFamilyTypes(filter);
             }
 
-            DrawingControl.ResumeDrawing(dgvFamilyTypes);
+            DrawingControl.ResumeDrawing(dgvData);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            Transaction trans = new Transaction(doc, "Update Type Marks");
+            trans.Start();
+
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                var typeMark = row.Cells["colTypeMark"].Value;
+                int intElemId = 0;
+                string strElemId = row.Cells["colElementId"].Value.ToString();
+
+                intElemId = Convert.ToInt32(strElemId);
+                ElementId id = new ElementId(intElemId);
+
+                Element elem = SelectElement(uiApp, id);
+
+                if (typeMark == null)
+                {
+                    Convert.ToString(typeMark);
+                    typeMark = "";
+                }
+
+                UpdateParameterValue(elem, BuiltInParameter.ALL_MODEL_TYPE_MARK, typeMark.ToString());
+            }
+
+            trans.Commit();
+
+            TaskDialog td = new TaskDialog("Type Mark Manager");
+            td.CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No;
+            td.MainInstruction = "Type Marks have been updated successfully";
+            td.MainContent = "Close Type Mark Manager?";
+
+            if (td.Show() == TaskDialogResult.Yes)
+            {
+                this.Dispose();
+            }
         }
     }
 
