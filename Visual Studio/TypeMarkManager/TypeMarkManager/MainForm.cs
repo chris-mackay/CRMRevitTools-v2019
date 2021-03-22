@@ -2221,9 +2221,8 @@ namespace TypeMarkManager
             trans.Commit();
 
             TaskDialog td = new TaskDialog("Type Mark Manager");
-            td.CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No;
+            td.CommonButtons = TaskDialogCommonButtons.Ok;
             td.MainInstruction = "Type Marks have been updated successfully";
-            td.MainContent = "Close Type Mark Manager?";
 
             if (td.Show() == TaskDialogResult.Yes)
             {

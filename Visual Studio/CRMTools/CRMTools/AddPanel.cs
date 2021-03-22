@@ -201,6 +201,29 @@ namespace CRMTools
 
             #endregion
 
+            #region TypeMarkManager
+
+            // Create a push button
+            PushButtonData btnTypeMarkManager = new PushButtonData("cmdTypeMarkManager", "Type Mark \nManager", commandsPath + "TypeMarkManager.dll", "TypeMarkManager.Class1");
+            btnTypeMarkManager.ToolTip = "Load all Family Types based on BuiltInCategory and edit their Type Marks.";
+            btnTypeMarkManager.LongDescription = "Select the BuiltInCategory from the dropdown list to load all Family " + 
+                                                 "Types loaded into the active Revit Document.\n\n" +
+                                                 "Double click in a cell to edit the Type Mark. Use the right click menu " +
+                                                 "tools to clear values or number Type Marks in sequential order.";
+
+            // create bitmap image for button
+            Uri uriLargeImage_TypeMarkManager = new Uri(iconsPath + @"32x32\cmdTypeMarkManager_32x32.bmp");
+            BitmapImage largeImage_TypeMarkManager = new BitmapImage(uriLargeImage_TypeMarkManager);
+
+            // create bitmap image for button
+            Uri uriSmallImage_TypeMarkManager = new Uri(iconsPath + @"16x16\cmdTypeMarkManager_16x16.bmp");
+            BitmapImage smallImage_TypeMarkManager = new BitmapImage(uriSmallImage_TypeMarkManager);
+
+            btnTypeMarkManager.LargeImage = largeImage_TypeMarkManager;
+            btnTypeMarkManager.Image = smallImage_TypeMarkManager;
+
+            #endregion
+
             #region About
 
             // Create a push button
@@ -244,6 +267,7 @@ namespace CRMTools
             manageButtons.Add(pnlManagePanel.AddItem(btnSharedParameterCreator));
             manageButtons.Add(pnlManagePanel.AddItem(btnInsertParameters));
             manageButtons.Add(pnlManagePanel.AddItem(btnPurgeParameters));
+            manageButtons.Add(pnlManagePanel.AddItem(btnTypeMarkManager));
 
             #endregion
 

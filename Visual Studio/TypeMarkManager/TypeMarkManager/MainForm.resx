@@ -130,9 +130,9 @@
     <value>True</value>
   </metadata>
   <data name="label2.Text" xml:space="preserve">
-    <value>Select the BuiltInCategory from the dropdown list to load all Family Types loaded into the Revit Document.
+    <value>Select the BuiltInCategory from the dropdown list to load all Family Types loaded into the active Revit Document.
 
-Double click in a cell to edit the data. Use the right click menu tools to clear values or number 
+Double click in a cell to edit the Type Mark. Use the right click menu tools to clear values or number 
 Type Marks in sequential order.
 
 Click Apply to update the Revit Document.
