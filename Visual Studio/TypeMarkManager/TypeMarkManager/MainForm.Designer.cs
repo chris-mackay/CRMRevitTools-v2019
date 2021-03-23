@@ -34,13 +34,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbCategories = new System.Windows.Forms.ComboBox();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.colElementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTypeMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFamilyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.ckbDefault = new System.Windows.Forms.CheckBox();
+            this.colElementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTypeMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFamilyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(12, 130);
+            this.label1.Location = new System.Drawing.Point(12, 110);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 1;
@@ -59,7 +60,7 @@
             this.cbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCategories.FormattingEnabled = true;
-            this.cbCategories.Location = new System.Drawing.Point(106, 122);
+            this.cbCategories.Location = new System.Drawing.Point(106, 102);
             this.cbCategories.Name = "cbCategories";
             this.cbCategories.Size = new System.Drawing.Size(487, 21);
             this.cbCategories.Sorted = true;
@@ -94,8 +95,8 @@
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colElementId,
             this.colTypeMark,
-            this.colFamilyName,
-            this.colTypeName});
+            this.colTypeName,
+            this.colFamilyName});
             this.dgvData.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dgvData.Location = new System.Drawing.Point(12, 155);
             this.dgvData.Name = "dgvData";
@@ -106,36 +107,7 @@
             this.dgvData.Size = new System.Drawing.Size(580, 466);
             this.dgvData.TabIndex = 3;
             this.dgvData.TabStop = false;
-            // 
-            // colElementId
-            // 
-            this.colElementId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colElementId.HeaderText = "Element Id";
-            this.colElementId.Name = "colElementId";
-            this.colElementId.ReadOnly = true;
-            this.colElementId.Width = 82;
-            // 
-            // colTypeMark
-            // 
-            this.colTypeMark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colTypeMark.HeaderText = "Type Mark";
-            this.colTypeMark.Name = "colTypeMark";
-            this.colTypeMark.Width = 83;
-            // 
-            // colFamilyName
-            // 
-            this.colFamilyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colFamilyName.HeaderText = "Family Name";
-            this.colFamilyName.Name = "colFamilyName";
-            this.colFamilyName.ReadOnly = true;
-            this.colFamilyName.Width = 92;
-            // 
-            // colTypeName
-            // 
-            this.colTypeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTypeName.HeaderText = "Type Name";
-            this.colTypeName.Name = "colTypeName";
-            this.colTypeName.ReadOnly = true;
+            this.dgvData.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvData_MouseUp);
             // 
             // btnClose
             // 
@@ -168,12 +140,54 @@
             this.label2.TabIndex = 0;
             this.label2.Text = resources.GetString("label2.Text");
             // 
+            // ckbDefault
+            // 
+            this.ckbDefault.AutoSize = true;
+            this.ckbDefault.Location = new System.Drawing.Point(106, 129);
+            this.ckbDefault.Name = "ckbDefault";
+            this.ckbDefault.Size = new System.Drawing.Size(138, 17);
+            this.ckbDefault.TabIndex = 7;
+            this.ckbDefault.Text = "Set Category as Default";
+            this.ckbDefault.UseVisualStyleBackColor = true;
+            this.ckbDefault.CheckedChanged += new System.EventHandler(this.ckbDefault_CheckedChanged);
+            // 
+            // colElementId
+            // 
+            this.colElementId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colElementId.HeaderText = "Element Id";
+            this.colElementId.Name = "colElementId";
+            this.colElementId.ReadOnly = true;
+            this.colElementId.Width = 82;
+            // 
+            // colTypeMark
+            // 
+            this.colTypeMark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colTypeMark.HeaderText = "Type Mark";
+            this.colTypeMark.Name = "colTypeMark";
+            this.colTypeMark.Width = 83;
+            // 
+            // colTypeName
+            // 
+            this.colTypeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colTypeName.HeaderText = "Type Name";
+            this.colTypeName.Name = "colTypeName";
+            this.colTypeName.ReadOnly = true;
+            this.colTypeName.Width = 87;
+            // 
+            // colFamilyName
+            // 
+            this.colFamilyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colFamilyName.HeaderText = "Family Name";
+            this.colFamilyName.Name = "colFamilyName";
+            this.colFamilyName.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.btnApply;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 661);
+            this.Controls.Add(this.ckbDefault);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.btnClose);
@@ -187,6 +201,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Type Mark Manager";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -201,9 +216,10 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox ckbDefault;
         private System.Windows.Forms.DataGridViewTextBoxColumn colElementId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTypeMark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFamilyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTypeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFamilyName;
     }
 }

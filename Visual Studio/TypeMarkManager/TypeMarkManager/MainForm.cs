@@ -40,17 +40,60 @@ namespace TypeMarkManager
             cbCategories.SelectedIndex = 0;
         }
 
-        private void ClearValues()
+        private ContextMenu TableContextMenu()
+        {
+            ContextMenu mnu = new ContextMenu();
+            MenuItem cxmnuClear = new MenuItem("Clear Type Mark(s)");
+            MenuItem cxmnuClearAll = new MenuItem("Clear All Type Marks");
+            
+            cxmnuClear.Click += new EventHandler(cxmnuClear_Click);
+            cxmnuClearAll.Click += new EventHandler(cxmnuClearAll_Click);
+
+            mnu.MenuItems.Add(cxmnuClear);
+            mnu.MenuItems.Add(cxmnuClearAll);
+            
+            return mnu;
+        }
+
+        private void cxmnuClearAll_Click(object sender, EventArgs e)
         {
             TaskDialog td = new TaskDialog("Type Mark Manager");
             td.MainIcon = TaskDialogIcon.TaskDialogIconNone;
-            td.MainInstruction = "Are you sure you want to clear the values of the selected cells?";
+            td.MainInstruction = "Are you sure you want to clear all Type Marks?";
             td.CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No;
 
             if (td.Show() == TaskDialogResult.Yes)
             {
-                foreach (DataGridViewCell cell in dgvData.SelectedCells)
-                    cell.Value = "";
+                foreach (DataGridViewRow row in dgvData.Rows)
+                {
+                    row.Cells["colTypeMark"].Value = "";
+                }
+            }
+        }
+
+        private void cxmnuClear_Click(object sender, EventArgs e)
+        {
+            TaskDialog td = new TaskDialog("Type Mark Manager");
+            td.MainIcon = TaskDialogIcon.TaskDialogIconNone;
+            td.MainInstruction = "Are you sure you want to clear the selected Type Marks?";
+            td.CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No;
+
+            if (td.Show() == TaskDialogResult.Yes)
+            {
+                foreach (DataGridViewRow row in dgvData.SelectedRows)
+                {
+                    row.Cells["colTypeMark"].Value = "";
+                }
+            }
+        }
+
+        private void dgvData_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ContextMenu contextMenu = new ContextMenu();
+                contextMenu = TableContextMenu();
+                contextMenu.Show(dgvData, new System.Drawing.Point(e.X, e.Y));
             }
         }
 
@@ -82,7 +125,7 @@ namespace TypeMarkManager
                 string famName = famSymbol.Family.Name;
                 string typeName = famSymbol.Name;
 
-                dgvData.Rows.Add(elemId, typeMark, famName, typeName);
+                dgvData.Rows.Add(elemId, typeMark, typeName, famName);
             }
         }
 
@@ -2186,6 +2229,8 @@ namespace TypeMarkManager
             }
 
             DrawingControl.ResumeDrawing(dgvData);
+
+            SetCheckbox();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -2228,6 +2273,66 @@ namespace TypeMarkManager
             {
                 this.Dispose();
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            XMLSettings.CreateAppSettings_SetDefaults();
+
+            string cat = XMLSettings.GetSettingsValue(XMLSettings.ApplicationSettings.DefaultCategory);
+            cbCategories.Text = cat;
+            cbCategories.Select(cat.Length + 1, 0);
+
+            ckbDefault.Checked = CategoryIsDefault(cat);
+        }
+
+        private void SetCheckbox()
+        {
+            string cat = cbCategories.Text;
+
+            if (!CategoryIsDefault(cat))
+            {
+                ckbDefault.Checked = false;
+                ckbDefault.Enabled = true;
+            }
+            else
+            {
+                ckbDefault.Checked = true;
+                ckbDefault.Enabled = false;
+            }
+        }
+
+        private void ckbDefault_CheckedChanged(object sender, EventArgs e)
+        {
+            string cat = cbCategories.Text;
+            bool isChecked = ckbDefault.Checked;
+
+            if (isChecked)
+                if (cat != string.Empty)
+                {
+                    XMLSettings.SetSettingsValue(XMLSettings.ApplicationSettings.DefaultCategory, cat);
+                    ckbDefault.Enabled = false;
+                }
+
+            SetCheckbox();
+        }
+
+        private bool CategoryIsDefault(string cat)
+        {
+            bool flag = false;
+            cat = cbCategories.Text;
+
+            string savedCat = XMLSettings.GetSettingsValue(XMLSettings.ApplicationSettings.DefaultCategory);
+
+            if (cat != string.Empty)
+            {
+                if (cat == savedCat)
+                    flag = true;
+                else
+                    flag = false;
+            }
+
+            return flag;
         }
     }
 

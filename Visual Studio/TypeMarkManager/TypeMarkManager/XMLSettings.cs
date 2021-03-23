@@ -11,9 +11,8 @@ namespace TypeMarkManager
 {
     public static class XMLSettings
     {
-        private static string CommandName = "COMMAND_NAME"; // Replace COMMAND_NAME
-        public static string AppSettingsDir = Path.Combine(@"C:\Users\", Environment.UserName, @"AppData\Local\" + CommandName);
-        public static string AppSettingsFile = Path.Combine(@"C:\Users\", Environment.UserName, @"AppData\Local\" + CommandName + "\\Settings.xml");
+        public static string AppSettingsDir = Path.Combine(@"C:\Users\", Environment.UserName, @"AppData\Local\CRMRevitTools\v2019\Settings\TypeMarkManager");
+        public static string AppSettingsFile = Path.Combine(@"C:\Users\", Environment.UserName, @"AppData\Local\CRMRevitTools\v2019\Settings\TypeMarkManager\Settings.xml");
 
         public static bool SettingsFileExists()
         {
@@ -75,7 +74,7 @@ namespace TypeMarkManager
                 Directory.CreateDirectory(AppSettingsDir);
 
             // Add settings here
-            appSettings.Add("Setting1," + "");
+            appSettings.Add("DefaultCategory," + "");
 
             if (!SettingsFileExists())
             {
@@ -146,7 +145,7 @@ namespace TypeMarkManager
         public sealed class ApplicationSettings
         {
             // Add settings here
-            public const string Setting1 = "//Settings/Setting1";
+            public const string DefaultCategory = "//Settings/DefaultCategory";
         }
     }
 }
