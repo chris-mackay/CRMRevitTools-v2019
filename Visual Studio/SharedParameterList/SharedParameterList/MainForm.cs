@@ -15,7 +15,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -123,13 +122,9 @@ namespace SharedParameterList
                         Autodesk.Revit.DB.Binding b = it.Current as Autodesk.Revit.DB.Binding;
                         
                         if (b is InstanceBinding)
-                        {
-                            dgvParameters.Rows.Add("Instance", def.ParameterType, sp.GuidValue, def.Name, "", "", "");
-                        }
+                            dgvParameters.Rows.Add("", "Instance", def.ParameterType, sp.GuidValue, def.Name, "");
                         else if (b is TypeBinding)
-                        {
-                            dgvParameters.Rows.Add("Type", def.ParameterType, sp.GuidValue, def.Name, "", "", "");
-                        }
+                            dgvParameters.Rows.Add("", "Type", def.ParameterType, sp.GuidValue, def.Name, "");
                     }
                 }
             }
@@ -149,16 +144,13 @@ namespace SharedParameterList
                         {
                             Element e = doc.GetElement(id);
                             FamilySymbol fs = e as FamilySymbol;
-                            Category c = fs.Category;
 
                             IList<Parameter> ps = fs.GetOrderedParameters();
 
                             foreach (Parameter p in ps)
                             {
                                 if (p.IsShared)
-                                {
-                                    dgvParameters.Rows.Add("Type", p.Definition.ParameterType, p.GUID, p.Definition.Name, f.Name, fs.Name, "");
-                                }
+                                    dgvParameters.Rows.Add("", "Type", p.Definition.ParameterType, p.GUID, p.Definition.Name, f.Name);
                             }
                         }
                     }
@@ -166,7 +158,29 @@ namespace SharedParameterList
             }
             else if (rbInstanceParameters.Checked)
             {
+                FilteredElementCollector eCol = new FilteredElementCollector(doc).WhereElementIsNotElementType();
+                eCol.WherePasses(new LogicalOrFilter(new ElementIsElementTypeFilter(false),new ElementIsElementTypeFilter(true)));
+                
+                List<Element> elems = new List<Element>();
 
+                foreach (Element e in eCol)
+                    if (e.Category != null)
+                        elems.Add(e);
+
+                foreach (Element e in elems)
+                {
+                    IList<Parameter> set = e.GetOrderedParameters();
+                    FamilyInstance fi = e as FamilyInstance;
+
+                    if (fi != null)
+                    {
+                        Family f = fi.Symbol.Family;
+
+                        foreach (Parameter p in set)
+                            if (p.IsShared)
+                                dgvParameters.Rows.Add(e.Id, "Instance", p.Definition.ParameterType, p.GUID, p.Definition.Name, f.Name);
+                    }
+                }
             }
 
             DrawingControl.ResumeDrawing(dgvParameters);

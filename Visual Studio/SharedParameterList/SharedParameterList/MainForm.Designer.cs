@@ -46,18 +46,17 @@ namespace SharedParameterList
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvParameters = new System.Windows.Forms.DataGridView();
-            this.Binding = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParamType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Family = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FamilyType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategories = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSaveFile = new System.Windows.Forms.Button();
             this.rbTypeParameters = new System.Windows.Forms.RadioButton();
             this.rbProjectParameters = new System.Windows.Forms.RadioButton();
             this.rbInstanceParameters = new System.Windows.Forms.RadioButton();
+            this.ElementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Binding = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParamType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Family = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameters)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,13 +84,12 @@ namespace SharedParameterList
             this.dgvParameters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvParameters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvParameters.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ElementId,
             this.Binding,
             this.ParamType,
             this.GUID,
             this.ParamName,
-            this.Family,
-            this.FamilyType,
-            this.colCategories});
+            this.Family});
             this.dgvParameters.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dgvParameters.Location = new System.Drawing.Point(12, 85);
             this.dgvParameters.Name = "dgvParameters";
@@ -99,68 +97,16 @@ namespace SharedParameterList
             this.dgvParameters.RowHeadersVisible = false;
             this.dgvParameters.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             this.dgvParameters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvParameters.Size = new System.Drawing.Size(845, 536);
+            this.dgvParameters.Size = new System.Drawing.Size(771, 536);
             this.dgvParameters.TabIndex = 3;
             this.dgvParameters.TabStop = false;
             this.dgvParameters.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvParameters_MouseUp);
-            // 
-            // Binding
-            // 
-            this.Binding.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Binding.HeaderText = "Binding";
-            this.Binding.Name = "Binding";
-            this.Binding.Width = 67;
-            // 
-            // ParamType
-            // 
-            this.ParamType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ParamType.HeaderText = "Parameter Type";
-            this.ParamType.Name = "ParamType";
-            this.ParamType.ReadOnly = true;
-            this.ParamType.Width = 107;
-            // 
-            // GUID
-            // 
-            this.GUID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.GUID.HeaderText = "GUID";
-            this.GUID.Name = "GUID";
-            this.GUID.ReadOnly = true;
-            this.GUID.Width = 59;
-            // 
-            // ParamName
-            // 
-            this.ParamName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ParamName.FillWeight = 92.8934F;
-            this.ParamName.HeaderText = "Parameter Name";
-            this.ParamName.Name = "ParamName";
-            this.ParamName.ReadOnly = true;
-            this.ParamName.Width = 111;
-            // 
-            // Family
-            // 
-            this.Family.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Family.HeaderText = "Family";
-            this.Family.Name = "Family";
-            this.Family.Width = 61;
-            // 
-            // FamilyType
-            // 
-            this.FamilyType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.FamilyType.HeaderText = "Family Type";
-            this.FamilyType.Name = "FamilyType";
-            this.FamilyType.Width = 88;
-            // 
-            // colCategories
-            // 
-            this.colCategories.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colCategories.HeaderText = "Categories";
-            this.colCategories.Name = "colCategories";
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnClose.Location = new System.Drawing.Point(782, 627);
+            this.btnClose.Location = new System.Drawing.Point(708, 627);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 5;
@@ -171,7 +117,7 @@ namespace SharedParameterList
             // btnSaveFile
             // 
             this.btnSaveFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveFile.Location = new System.Drawing.Point(701, 627);
+            this.btnSaveFile.Location = new System.Drawing.Point(627, 627);
             this.btnSaveFile.Name = "btnSaveFile";
             this.btnSaveFile.Size = new System.Drawing.Size(75, 23);
             this.btnSaveFile.TabIndex = 4;
@@ -216,13 +162,59 @@ namespace SharedParameterList
             this.rbInstanceParameters.UseVisualStyleBackColor = true;
             this.rbInstanceParameters.CheckedChanged += new System.EventHandler(this.RadioButtonChecked);
             // 
+            // ElementId
+            // 
+            this.ElementId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ElementId.HeaderText = "Element Id";
+            this.ElementId.Name = "ElementId";
+            this.ElementId.Width = 82;
+            // 
+            // Binding
+            // 
+            this.Binding.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Binding.HeaderText = "Binding";
+            this.Binding.Name = "Binding";
+            this.Binding.Width = 67;
+            // 
+            // ParamType
+            // 
+            this.ParamType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ParamType.HeaderText = "Parameter Type";
+            this.ParamType.Name = "ParamType";
+            this.ParamType.ReadOnly = true;
+            this.ParamType.Width = 107;
+            // 
+            // GUID
+            // 
+            this.GUID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.GUID.HeaderText = "GUID";
+            this.GUID.Name = "GUID";
+            this.GUID.ReadOnly = true;
+            this.GUID.Width = 59;
+            // 
+            // ParamName
+            // 
+            this.ParamName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ParamName.FillWeight = 92.8934F;
+            this.ParamName.HeaderText = "Parameter Name";
+            this.ParamName.Name = "ParamName";
+            this.ParamName.ReadOnly = true;
+            this.ParamName.Width = 111;
+            // 
+            // Family
+            // 
+            this.Family.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Family.HeaderText = "Family";
+            this.Family.Name = "Family";
+            this.Family.Width = 61;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.btnSaveFile;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(869, 662);
+            this.ClientSize = new System.Drawing.Size(795, 662);
             this.Controls.Add(this.rbInstanceParameters);
             this.Controls.Add(this.rbProjectParameters);
             this.Controls.Add(this.rbTypeParameters);
@@ -247,15 +239,14 @@ namespace SharedParameterList
         private System.Windows.Forms.Button btnClose;
         public System.Windows.Forms.DataGridView dgvParameters;
         private System.Windows.Forms.Button btnSaveFile;
+        private System.Windows.Forms.RadioButton rbTypeParameters;
+        private System.Windows.Forms.RadioButton rbProjectParameters;
+        private System.Windows.Forms.RadioButton rbInstanceParameters;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ElementId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Binding;
         private System.Windows.Forms.DataGridViewTextBoxColumn ParamType;
         private System.Windows.Forms.DataGridViewTextBoxColumn GUID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ParamName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Family;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FamilyType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCategories;
-        private System.Windows.Forms.RadioButton rbTypeParameters;
-        private System.Windows.Forms.RadioButton rbProjectParameters;
-        private System.Windows.Forms.RadioButton rbInstanceParameters;
     }
 }
