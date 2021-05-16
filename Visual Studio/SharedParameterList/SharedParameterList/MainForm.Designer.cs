@@ -46,17 +46,17 @@ namespace SharedParameterList
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvParameters = new System.Windows.Forms.DataGridView();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSaveFile = new System.Windows.Forms.Button();
-            this.rbTypeParameters = new System.Windows.Forms.RadioButton();
-            this.rbProjectParameters = new System.Windows.Forms.RadioButton();
-            this.rbInstanceParameters = new System.Windows.Forms.RadioButton();
             this.ElementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Binding = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ParamType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ParamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Family = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSaveFile = new System.Windows.Forms.Button();
+            this.rbTypeParameters = new System.Windows.Forms.RadioButton();
+            this.rbProjectParameters = new System.Windows.Forms.RadioButton();
+            this.rbInstanceParameters = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameters)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,70 +97,10 @@ namespace SharedParameterList
             this.dgvParameters.RowHeadersVisible = false;
             this.dgvParameters.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             this.dgvParameters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvParameters.Size = new System.Drawing.Size(771, 536);
+            this.dgvParameters.Size = new System.Drawing.Size(860, 536);
             this.dgvParameters.TabIndex = 3;
             this.dgvParameters.TabStop = false;
             this.dgvParameters.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvParameters_MouseUp);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnClose.Location = new System.Drawing.Point(708, 627);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 5;
-            this.btnClose.TabStop = false;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // btnSaveFile
-            // 
-            this.btnSaveFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveFile.Location = new System.Drawing.Point(627, 627);
-            this.btnSaveFile.Name = "btnSaveFile";
-            this.btnSaveFile.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveFile.TabIndex = 4;
-            this.btnSaveFile.Text = "Save File";
-            this.btnSaveFile.UseVisualStyleBackColor = true;
-            this.btnSaveFile.Click += new System.EventHandler(this.btnSaveFile_Click);
-            // 
-            // rbTypeParameters
-            // 
-            this.rbTypeParameters.AutoSize = true;
-            this.rbTypeParameters.Location = new System.Drawing.Point(12, 35);
-            this.rbTypeParameters.Name = "rbTypeParameters";
-            this.rbTypeParameters.Size = new System.Drawing.Size(305, 17);
-            this.rbTypeParameters.TabIndex = 1;
-            this.rbTypeParameters.TabStop = true;
-            this.rbTypeParameters.Text = "Type parameters (from Families loaded into Project Browser)";
-            this.rbTypeParameters.UseVisualStyleBackColor = true;
-            this.rbTypeParameters.CheckedChanged += new System.EventHandler(this.RadioButtonChecked);
-            // 
-            // rbProjectParameters
-            // 
-            this.rbProjectParameters.AutoSize = true;
-            this.rbProjectParameters.Location = new System.Drawing.Point(12, 12);
-            this.rbProjectParameters.Name = "rbProjectParameters";
-            this.rbProjectParameters.Size = new System.Drawing.Size(484, 17);
-            this.rbProjectParameters.TabIndex = 0;
-            this.rbProjectParameters.TabStop = true;
-            this.rbProjectParameters.Text = "Project Parameters (Type and Instance parameters that have been manually added to" +
-    " the project)";
-            this.rbProjectParameters.UseVisualStyleBackColor = true;
-            this.rbProjectParameters.CheckedChanged += new System.EventHandler(this.RadioButtonChecked);
-            // 
-            // rbInstanceParameters
-            // 
-            this.rbInstanceParameters.AutoSize = true;
-            this.rbInstanceParameters.Location = new System.Drawing.Point(12, 58);
-            this.rbInstanceParameters.Name = "rbInstanceParameters";
-            this.rbInstanceParameters.Size = new System.Drawing.Size(291, 17);
-            this.rbInstanceParameters.TabIndex = 2;
-            this.rbInstanceParameters.TabStop = true;
-            this.rbInstanceParameters.Text = "Instance parameters (from Family Instances in the model)";
-            this.rbInstanceParameters.UseVisualStyleBackColor = true;
-            this.rbInstanceParameters.CheckedChanged += new System.EventHandler(this.RadioButtonChecked);
             // 
             // ElementId
             // 
@@ -208,13 +148,73 @@ namespace SharedParameterList
             this.Family.Name = "Family";
             this.Family.Width = 61;
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnClose.Location = new System.Drawing.Point(797, 627);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.TabStop = false;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveFile
+            // 
+            this.btnSaveFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveFile.Location = new System.Drawing.Point(716, 627);
+            this.btnSaveFile.Name = "btnSaveFile";
+            this.btnSaveFile.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveFile.TabIndex = 4;
+            this.btnSaveFile.Text = "Save File";
+            this.btnSaveFile.UseVisualStyleBackColor = true;
+            this.btnSaveFile.Click += new System.EventHandler(this.btnSaveFile_Click);
+            // 
+            // rbTypeParameters
+            // 
+            this.rbTypeParameters.AutoSize = true;
+            this.rbTypeParameters.Location = new System.Drawing.Point(12, 35);
+            this.rbTypeParameters.Name = "rbTypeParameters";
+            this.rbTypeParameters.Size = new System.Drawing.Size(305, 17);
+            this.rbTypeParameters.TabIndex = 1;
+            this.rbTypeParameters.TabStop = true;
+            this.rbTypeParameters.Text = "Type parameters (from Families loaded into Project Browser)";
+            this.rbTypeParameters.UseVisualStyleBackColor = true;
+            this.rbTypeParameters.CheckedChanged += new System.EventHandler(this.RadioButtonChecked);
+            // 
+            // rbProjectParameters
+            // 
+            this.rbProjectParameters.AutoSize = true;
+            this.rbProjectParameters.Location = new System.Drawing.Point(12, 12);
+            this.rbProjectParameters.Name = "rbProjectParameters";
+            this.rbProjectParameters.Size = new System.Drawing.Size(484, 17);
+            this.rbProjectParameters.TabIndex = 0;
+            this.rbProjectParameters.TabStop = true;
+            this.rbProjectParameters.Text = "Project Parameters (Type and Instance parameters that have been manually added to" +
+    " the project)";
+            this.rbProjectParameters.UseVisualStyleBackColor = true;
+            this.rbProjectParameters.CheckedChanged += new System.EventHandler(this.RadioButtonChecked);
+            // 
+            // rbInstanceParameters
+            // 
+            this.rbInstanceParameters.AutoSize = true;
+            this.rbInstanceParameters.Location = new System.Drawing.Point(12, 58);
+            this.rbInstanceParameters.Name = "rbInstanceParameters";
+            this.rbInstanceParameters.Size = new System.Drawing.Size(291, 17);
+            this.rbInstanceParameters.TabIndex = 2;
+            this.rbInstanceParameters.TabStop = true;
+            this.rbInstanceParameters.Text = "Instance parameters (from Family Instances in the model)";
+            this.rbInstanceParameters.UseVisualStyleBackColor = true;
+            this.rbInstanceParameters.CheckedChanged += new System.EventHandler(this.RadioButtonChecked);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.btnSaveFile;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(795, 662);
+            this.ClientSize = new System.Drawing.Size(884, 662);
             this.Controls.Add(this.rbInstanceParameters);
             this.Controls.Add(this.rbProjectParameters);
             this.Controls.Add(this.rbTypeParameters);

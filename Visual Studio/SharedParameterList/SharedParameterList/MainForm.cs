@@ -59,6 +59,15 @@ namespace SharedParameterList
             }
         }
 
+        private void cxmnuCopyElementId_Click(object sender, EventArgs e)
+        {
+            if (dgvParameters.Rows.Count > 0 && dgvParameters.SelectedRows.Count > 0)
+            {
+                string id = dgvParameters.CurrentRow.Cells["ElementId"].Value.ToString();
+                Clipboard.SetText(id);
+            }
+        }
+
         private void cxmnuCopyName_Click(object sender, EventArgs e)
         {
             if (dgvParameters.Rows.Count > 0 && dgvParameters.SelectedRows.Count > 0)
@@ -120,11 +129,12 @@ namespace SharedParameterList
                         var sp = doc.GetElement(def.Id) as SharedParameterElement;
 
                         Autodesk.Revit.DB.Binding b = it.Current as Autodesk.Revit.DB.Binding;
-                        
-                        if (b is InstanceBinding)
-                            dgvParameters.Rows.Add("", "Instance", def.ParameterType, sp.GuidValue, def.Name, "");
-                        else if (b is TypeBinding)
-                            dgvParameters.Rows.Add("", "Type", def.ParameterType, sp.GuidValue, def.Name, "");
+
+                        if (sp != null)
+                            if (b is InstanceBinding)
+                                dgvParameters.Rows.Add("", "Instance", def.ParameterType, sp.GuidValue, def.Name, "");
+                            else if (b is TypeBinding)
+                                dgvParameters.Rows.Add("", "Type", def.ParameterType, sp.GuidValue, def.Name, "");
                     }
                 }
             }
@@ -1223,13 +1233,16 @@ namespace SharedParameterList
         private ContextMenu TableContextMenu()
         {
             ContextMenu mnu = new ContextMenu();
-            
+
+            MenuItem cxmnuCopyElementId = new MenuItem("Copy Element Id");
             MenuItem cxmnuCopyGUID = new MenuItem("Copy GUID");
             MenuItem cxmnuCopyName = new MenuItem("Copy Parameter Name");
 
+            cxmnuCopyElementId.Click += new EventHandler(cxmnuCopyElementId_Click);
             cxmnuCopyGUID.Click += new EventHandler(cxmnuCopyGUID_Click);
             cxmnuCopyName.Click += new EventHandler(cxmnuCopyName_Click);
 
+            mnu.MenuItems.Add(cxmnuCopyElementId);
             mnu.MenuItems.Add(cxmnuCopyGUID);
             mnu.MenuItems.Add(cxmnuCopyName);
 
@@ -1265,25 +1278,39 @@ namespace SharedParameterList
                           
         private void btnSaveFile_Click(object sender, EventArgs e)
         {
-            StreamWriter sw = new StreamWriter(@"C:\Users\cmackay\Documents\Parameters.txt");
+            SaveFileDialog sd = new SaveFileDialog();
 
-            foreach (DataGridViewRow row in dgvParameters.Rows)
+            sd.Title = "Specify file to save";
+            sd.InitialDirectory = "C:\\";
+
+            if (rbProjectParameters.Checked)
+                sd.FileName = "project_parameters.txt";
+            else if(rbTypeParameters.Checked)
+                sd.FileName = "type_parameters.txt";
+            else if (rbInstanceParameters.Checked)
+                sd.FileName = "instance_parameters.txt";
+
+            if (sd.ShowDialog() == DialogResult.OK)
             {
-                StringBuilder sb = new StringBuilder();
+                StreamWriter sw = new StreamWriter(sd.FileName);
 
-                foreach (DataGridViewCell cell in row.Cells)
+                foreach (DataGridViewRow row in dgvParameters.Rows)
                 {
-                    sb.Append(cell.Value + "|");
+                    StringBuilder sb = new StringBuilder();
+
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        sb.Append(cell.Value + "|");
+                    }
+
+                    string line = sb.ToString();
+                    string entry = line.Remove(line.Length - 2, 1);
+
+                    sw.WriteLine(entry);
+                    sb = null;
                 }
-
-                string line = sb.ToString();
-                string entry = line.Remove(line.Length - 2, 1);
-
-                sw.WriteLine(entry);
-                sb = null;
+                sw.Close();
             }
-
-            sw.Close();
         }
 
         public static class DrawingControl
