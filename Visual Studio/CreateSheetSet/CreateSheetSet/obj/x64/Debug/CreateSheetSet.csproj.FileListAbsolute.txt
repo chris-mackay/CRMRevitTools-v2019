@@ -5,3 +5,4 @@ C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateSheetSet\CreateSheetSet\o
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateSheetSet\CreateSheetSet\obj\x64\Debug\CreateSheetSet.csproj.GenerateResource.cache
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateSheetSet\CreateSheetSet\obj\x64\Debug\CreateSheetSet.dll
 C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateSheetSet\CreateSheetSet\obj\x64\Debug\CreateSheetSet.pdb
+C:\Programming\CRMRevitTools-v2019\Visual Studio\CreateSheetSet\CreateSheetSet\obj\x64\Debug\CreateSheetSet.csprojAssemblyReference.cache

@@ -19,18 +19,20 @@ namespace TypeMarkManager
     {
         UIApplication uiApp = null;
         Document doc = null;
+        ExternalCommandData data = null;
 
         public MainForm()
         {
             InitializeComponent();
         }
 
-        public MainForm(UIApplication incomingUIApp)
+        public MainForm(UIApplication incomingUIApp, ExternalCommandData commandData)
         {
             InitializeComponent();
             uiApp = incomingUIApp;
             doc = uiApp.ActiveUIDocument.Document;
-            
+            data = commandData;
+
             List<string> list = new List<string>();
             list = BuiltInCategories();
 
@@ -2197,13 +2199,15 @@ namespace TypeMarkManager
             dgvData.Rows.Clear();
 
             string cat = cbCategories.Text;
-            Dictionary<string, BuiltInCategory> catDict = BuiltInCategoryDictionary();
+            //Dictionary<string, BuiltInCategory> catDict = BuiltInCategoryDictionary();
+            Category category = data.Application.ActiveUIDocument.Document.Settings.Categories.get_Item(cat);
 
-            if (catDict.ContainsKey(cat))
+            if (category != null)
             {
-                BuiltInCategory builtInCategory = catDict[cat];
-            
-                ElementCategoryFilter filter = new ElementCategoryFilter(builtInCategory);
+                //BuiltInCategory builtInCategory = catDict[cat];
+
+                //ElementCategoryFilter filter = new ElementCategoryFilter(builtInCategory);
+                ElementCategoryFilter filter = new ElementCategoryFilter(category);
                 LoadFamilyTypes(filter);
             }
 

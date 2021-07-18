@@ -14,7 +14,7 @@ namespace TypeMarkManager
         {
             UIApplication uiApp = commandData.Application;
 
-            MainForm myMainForm = new MainForm(uiApp);
+            MainForm myMainForm = new MainForm(uiApp, commandData);
             myMainForm.ShowDialog();
 
             return Result.Succeeded;
