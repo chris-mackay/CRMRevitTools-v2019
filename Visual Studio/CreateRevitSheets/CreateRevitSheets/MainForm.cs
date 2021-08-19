@@ -23,11 +23,23 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System.Text;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace CreateRevitSheets
 {
     public partial class MainForm : System.Windows.Forms.Form
     {
+        [DllImport("Shcore.dll")]
+        static extern int SetProcessDpiAwareness(int PROCESS_DPI_AWARENESS);
+
+        // According to https://msdn.microsoft.com/en-us/library/windows/desktop/dn280512(v=vs.85).aspx
+        private enum DpiAwareness
+        {
+            None = 0,
+            SystemAware = 1,
+            PerMonitorAware = 2
+        }
+
         #region CLASS LEVEL VARIABLES
 
         //REVIT
@@ -65,12 +77,20 @@ namespace CreateRevitSheets
        
         public MainForm()
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            SetProcessDpiAwareness((int)DpiAwareness.PerMonitorAware);
+
+            Application.Run(new MainForm());
+
             InitializeComponent();
         }
 
         public MainForm(UIApplication incomingUIApp)
         {
             InitializeComponent();
+            
             revitUIApp = incomingUIApp;
             revitDoc = revitUIApp.ActiveUIDocument.Document;
 
@@ -99,7 +119,6 @@ namespace CreateRevitSheets
 
             //VIEW DICTIONARY
             viewDictionary = new Dictionary<string, ElementId>();
-         
         }
         
         private void cbTitleblocks_SelectedIndexChanged(object sender, EventArgs e)
