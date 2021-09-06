@@ -2199,15 +2199,15 @@ namespace TypeMarkManager
             dgvData.Rows.Clear();
 
             string cat = cbCategories.Text;
-            Dictionary<string, BuiltInCategory> catDict = BuiltInCategoryDictionary();
-            //Category category = data.Application.ActiveUIDocument.Document.Settings.Categories.get_Item(cat);
+            //Dictionary<string, BuiltInCategory> catDict = BuiltInCategoryDictionary();
+            Category category = data.Application.ActiveUIDocument.Document.Settings.Categories.get_Item(cat);
 
-            if (catDict != null)
+            if (category != null)
             {
-                BuiltInCategory builtInCategory = catDict[cat];
+                //BuiltInCategory builtInCategory = catDict[cat];
 
-                ElementCategoryFilter filter = new ElementCategoryFilter(builtInCategory);
-                //ElementCategoryFilter filter = new ElementCategoryFilter(category);
+                //ElementCategoryFilter filter = new ElementCategoryFilter(builtInCategory);
+                ElementCategoryFilter filter = new ElementCategoryFilter(category);
                 LoadFamilyTypes(filter);
             }
 

@@ -1,4 +1,4 @@
-﻿//    Copyright(C) 2019-2020 Christopher Ryan Mackay
+﻿//    Copyright(C) 2019 Christopher Ryan Mackay
 
 //    This program is free software: you can redistribute it and/or modify
 //    it under the terms of the GNU General Public License as published by
@@ -17,24 +17,27 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 
-namespace CreateRevitSheets
+namespace SheetRenamer
 {
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
 
     public class Class1 : IExternalCommand
     {
-               
+        public static ExternalCommandData m_commandData;
+
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            //GET APPLICATION AND DOCUMENT OBJECTS
+
+            m_commandData = commandData;
+
             UIApplication uiApp = commandData.Application;
 
-            MainForm myMainForm = new MainForm(uiApp); //CREATES A NEW MAINFORM AND PASSES THE REVIT APP TO ACCESS ELEMENTS
+            MainForm myMainForm = new MainForm(uiApp); //CREATES A NEW MAINFORM AND PASSED THE REVIT APP TO ACCESS ELEMENTS
 
             myMainForm.ShowDialog();
-                       
-        return Result.Succeeded;
+
+            return Result.Succeeded;
 
         }
     }

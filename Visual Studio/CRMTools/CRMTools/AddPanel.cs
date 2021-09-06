@@ -110,24 +110,24 @@ namespace CRMTools
 
             #endregion
 
-            #region PDFRenamer
+            #region SheetRenamer
 
-            PushButtonData btnPDFRenamer = new PushButtonData("cmdPDFRenamer", "PDF \nRenamer", commandsPath + "PDFRenamer.dll", "PDFRenamer.Class1");
-            btnPDFRenamer.ToolTip = "Renames all PDF files in a directory to the following naming convention: Project Number-Sheet Number_Current Revision";
-            btnPDFRenamer.LongDescription = "Create a sheet set within Revit and assign the sheets you want to print. Once the sheets are printed, browse to the directory where they are saved. " +
+            PushButtonData btnSheetRenamer = new PushButtonData("cmdSheetRenamer", "Sheet \nRenamer", commandsPath + "SheetRenamer.dll", "SheetRenamer.Class1");
+            btnSheetRenamer.ToolTip = "Renames all PDF files in a directory to the following naming convention: Project Number-Sheet Number_Current Revision";
+            btnSheetRenamer.LongDescription = "Create a sheet set within Revit and assign the sheets you want to print. Once the sheets are printed, browse to the directory where they are saved. " +
                                               "Select the sheet set that you used to print and click OK.\n\n" +
                                               "NOTE: Ensure that the Project Number is set within Project Information for proper file naming.";
 
             // create bitmap image for button
-            Uri uriLargeImage_PDFRenamer = new Uri(iconsPath + @"32x32\cmdPDFRenamer_32x32.bmp");
-            BitmapImage largeImage_PDFRenamer = new BitmapImage(uriLargeImage_PDFRenamer);
+            Uri uriLargeImage_SheetRenamer = new Uri(iconsPath + @"32x32\cmdSheetRenamer_32x32.bmp");
+            BitmapImage largeImage_SheetRenamer = new BitmapImage(uriLargeImage_SheetRenamer);
 
             // create bitmap image for button
-            Uri uriSmallImage_PDFRenamer = new Uri(iconsPath + @"16x16\cmdPDFRenamer_16x16.bmp");
-            BitmapImage smallImage_PDFRenamer = new BitmapImage(uriSmallImage_PDFRenamer);
+            Uri uriSmallImage_SheetRenamer = new Uri(iconsPath + @"16x16\cmdSheetRenamer_16x16.bmp");
+            BitmapImage smallImage_SheetRenamer = new BitmapImage(uriSmallImage_SheetRenamer);
 
-            btnPDFRenamer.LargeImage = largeImage_PDFRenamer;
-            btnPDFRenamer.Image = smallImage_PDFRenamer;
+            btnSheetRenamer.LargeImage = largeImage_SheetRenamer;
+            btnSheetRenamer.Image = smallImage_SheetRenamer;
 
             #endregion
 
@@ -253,7 +253,7 @@ namespace CRMTools
             productionButtons.Add(pnlProductionPanel.AddItem(btnCreateRevitSheets));
             productionButtons.Add(pnlProductionPanel.AddItem(btnRevisionOnSheets));
             productionButtons.Add(pnlProductionPanel.AddItem(btnCreateSheetSet));
-            productionButtons.Add(pnlProductionPanel.AddItem(btnPDFRenamer));
+            productionButtons.Add(pnlProductionPanel.AddItem(btnSheetRenamer));
 
             #endregion
 

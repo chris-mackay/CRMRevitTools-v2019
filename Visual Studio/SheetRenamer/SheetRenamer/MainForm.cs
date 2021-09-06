@@ -1,15 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
+﻿//    Copyright(C) 2019 Christopher Ryan Mackay
+
+//    This program is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+
+//    This program is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+//    GNU General Public License for more details.
+
+//    You should have received a copy of the GNU General Public License
+//    along with this program.If not, see<https://www.gnu.org/licenses/>.
+
+using System;
+using System.Windows.Forms;
+using System.IO;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using Microsoft.WindowsAPICodePack.Dialogs;
-using System.IO;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.ComponentModel;
 
-namespace PDFRenamer
+namespace SheetRenamer
 {
-    public partial class MainWindow : Window
+    public partial class MainForm : System.Windows.Forms.Form
     {
         #region CLASS_LEVEL_VARIABLES
 
@@ -17,29 +33,21 @@ namespace PDFRenamer
         Document myRevitDoc = null;
 
         public string projectNumber = string.Empty;
+        
+
         public IList<Element> viewSheetSets = null;
         public string REVIT_VERSION = "v2019";
 
         #endregion
 
-        public MainWindow()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        public MainWindow(UIApplication incomingUIApp)
+        public MainForm(UIApplication incomingUIApp)
         {
             InitializeComponent();
-
-            Dictionary<string, string> settings = new Dictionary<string, string>();
-
-            settings.Add("DefaultDirectory", "");
-
-            XMLSettings.AppSettingsFile = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\v2019\Commands\PDFRenamer.xml";
-            XMLSettings.InitializeSettings(settings);
-
-            txtDrawingDirectory.Text = XMLSettings.GetSettingsValue("DefaultDirectory");
-
             myRevitUIApp = incomingUIApp;
             myRevitDoc = myRevitUIApp.ActiveUIDocument.Document;
 
@@ -56,94 +64,23 @@ namespace PDFRenamer
             }
         }
 
-        private void btnBrowse_Click(object sender, RoutedEventArgs e)
+        private void btnBrowse_Click(object sender, EventArgs e)
         {
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-
-            string def = XMLSettings.GetSettingsValue("DefaultDirectory");
-
-            if (def == "")
-            {
-                dialog.InitialDirectory = "C:\\";
-            }
-            else
-            {
-                dialog.InitialDirectory = def;
-            }
-
-            dialog.IsFolderPicker = true;
-            dialog.Title = "Select the directory where the PDF files are located";
+            FolderBrowserDialog fldrBrowser = new FolderBrowserDialog();
+            fldrBrowser.Description = "Select the directory where the sheets you want to rename are located";
 
             //GET DIRECTORY WHERE THE DRAWINGS ARE SAVED
-            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            if (fldrBrowser.ShowDialog() == DialogResult.OK)
             {
                 string dir = string.Empty;
-                dir = dialog.FileName;
+                dir = fldrBrowser.SelectedPath;
                 txtDrawingDirectory.Text = dir.Trim();
             }
-            else
-            {
-                dialog = null;
-            }
         }
 
-        private bool DrawingDirectoryIsDefault(string dir)
+        private void btnOK_Click(object sender, EventArgs e)
         {
-            bool flag = false;
-            dir = txtDrawingDirectory.Text;
-
-            string savedDir = XMLSettings.GetSettingsValue("DefaultDirectory");
-
-            if (dir != string.Empty && System.IO.Directory.Exists(dir))
-            {
-                if (dir == savedDir)
-                    flag = true;
-                else
-                    flag = false;
-            }
-
-            return flag;
-        }
-
-        private void ckbDefault_Checked(object sender, RoutedEventArgs e)
-        {
-            string dir = txtDrawingDirectory.Text;
-            bool? isChecked = ckbDefault.IsChecked;
-
-            if ((bool)isChecked)
-                if (dir != string.Empty && System.IO.Directory.Exists(dir))
-                {
-                    XMLSettings.SetSettingsValue("DefaultDirectory", dir);
-                    ckbDefault.IsEnabled = false;
-                }
-        }
-
-        private void txtDrawingDirectory_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            string dir = txtDrawingDirectory.Text;
-
-            if (!DrawingDirectoryIsDefault(dir))
-            {
-                ckbDefault.IsChecked = false;
-                ckbDefault.IsEnabled = true;
-            }
-            else
-            {
-                ckbDefault.IsChecked = true;
-                ckbDefault.IsEnabled = false;
-            }
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = false;
-        }
-
-        private void btnOK_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = true;
-
-            Autodesk.Revit.UI.TaskDialog taskDialog = new Autodesk.Revit.UI.TaskDialog("PDF Renamer");
+            TaskDialog taskDialog = new TaskDialog("Sheet Renamer");
 
             string dir = txtDrawingDirectory.Text;
 
@@ -172,7 +109,7 @@ namespace PDFRenamer
                 taskDialog.MainContent = dir;
                 taskDialog.CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No;
 
-                if (taskDialog.Show() == Autodesk.Revit.UI.TaskDialogResult.Yes)
+                if (taskDialog.Show() == TaskDialogResult.Yes)
                 {
                     ViewSet viewSet = null;
 
@@ -192,7 +129,7 @@ namespace PDFRenamer
                     // <Key>   Old file to be renamed
                     // <Value> New file name
                     Dictionary<string, string> fileDic = new Dictionary<string, string>();
-
+                    
                     foreach (ViewSheet v in viewSet) // Loop through all the sheets in the sheet set
                     {
                         string sheetNumber = string.Empty;
@@ -263,7 +200,7 @@ namespace PDFRenamer
                         }
                         catch (Exception ex)
                         {
-                            Autodesk.Revit.UI.TaskDialog errorTaskDialog = new Autodesk.Revit.UI.TaskDialog("PDF Renamer");
+                            TaskDialog errorTaskDialog = new TaskDialog("Sheet Renamer");
                             errorTaskDialog.MainInstruction = "An error occured while renaming the files. See message below.";
                             errorTaskDialog.MainContent = "Error Message: " + ex.Message + "\nError Source: " + ex.Source;
                             errorTaskDialog.CommonButtons = TaskDialogCommonButtons.Ok;
@@ -271,13 +208,108 @@ namespace PDFRenamer
                             return;
                         }
                     }
-                    Autodesk.Revit.UI.TaskDialog completeTaskDialog = new Autodesk.Revit.UI.TaskDialog("PDF Renamer");
+                    TaskDialog completeTaskDialog = new TaskDialog("Sheet Renamer");
                     completeTaskDialog.MainInstruction = "The sheets have been renamed successfully";
                     completeTaskDialog.MainContent = "";
                     completeTaskDialog.CommonButtons = TaskDialogCommonButtons.Ok;
                     completeTaskDialog.Show();
                 }
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            string helpFile = string.Empty;
+            helpFile = @"C:\Users\" + Environment.UserName + @"\Documents\CRMRevitTools\" + REVIT_VERSION + @"\CRMRevitTools_Help\sheet_renamer.html";
+
+            if (File.Exists(helpFile))
+            {
+                Process.Start(helpFile);
+            }
+            else
+            {
+                TaskDialog taskDialog = new TaskDialog("Sheet Renamer");
+
+                taskDialog.MainIcon = TaskDialogIcon.TaskDialogIconNone;
+                taskDialog.MainInstruction = "The Help file for Sheet Renamer could not be found. It may have been moved or deleted.";
+                taskDialog.Show();
+            }
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            using (Font myFont = new Font("Segoe UI", 12))
+            {
+                var brush = new SolidBrush(System.Drawing.Color.FromArgb(0, 51, 188));
+
+                e.Graphics.DrawString("Specify the directory where the PDF files have been printed.\n" +
+                                      "Select the Sheet Set that was used to print the PDF files.\n\n" + 
+                                      "Click OK to rename the PDF files. Make sure none of the\n" +
+                                      "files are open before renaming.", myFont, brush, new System.Drawing.Point(0, 0));
+            }
+        }
+
+        private void txtDrawingDirectory_TextChanged(object sender, EventArgs e)
+        {
+            string dir = txtDrawingDirectory.Text;
+
+            if (!DrawingDirectoryIsDefault(dir))
+            {
+                ckbDefault.Checked = false;
+                ckbDefault.Enabled = true;
+            }
+            else
+            {
+                ckbDefault.Checked = true;
+                ckbDefault.Enabled = false;
+            }
+        }
+
+        private bool DrawingDirectoryIsDefault(string dir)
+        {
+            bool flag = false;
+            dir = txtDrawingDirectory.Text;
+            
+            string savedDir = XMLSettings.GetSettingsValue(XMLSettings.ApplicationSettings.DrawingDirectory);
+
+            if (dir != string.Empty && System.IO.Directory.Exists(dir))
+            {
+                if (dir == savedDir)
+                    flag = true;
+                else
+                    flag = false;
+            }
+
+            return flag;
+        }
+
+        private void ckbDefault_CheckedChanged(object sender, EventArgs e)
+        {
+            string dir = txtDrawingDirectory.Text;
+            bool isChecked = ckbDefault.Checked;
+
+            if (isChecked)
+                if (dir != string.Empty && System.IO.Directory.Exists(dir))
+                {
+                    XMLSettings.SetSettingsValue(XMLSettings.ApplicationSettings.DrawingDirectory, dir);
+                    ckbDefault.Enabled = false;
+                }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            XMLSettings.CreateAppSettings_SetDefaults();
+
+            string dir = XMLSettings.GetSettingsValue(XMLSettings.ApplicationSettings.DrawingDirectory);
+            txtDrawingDirectory.Text = dir;
+            txtDrawingDirectory.Select(dir.Length + 1, 0);
+
+            ckbDefault.Checked = DrawingDirectoryIsDefault(dir);
         }
     }
 }
